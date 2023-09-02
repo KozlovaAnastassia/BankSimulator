@@ -44,8 +44,8 @@ class ExpensesCategoriesController: UIViewController, ExpensesCategoriesViewDele
   
     func tapButtonAddExpenses() {
         let bottomSheetViewModel = BottomSheetViewModel(moneyPlaceholder: nil,
-                                             categoryPlaceholder: Constants.PlaceholderTitle.category,
-                                             buttonAddTitle: Constants.ButtonTitle.expensesCategory)
+                                                        categoryPlaceholder: Constants.PlaceholderTitle.category,
+                                                        buttonAddTitle: Constants.ButtonTitle.expensesCategory)
         let vc = BottomSheetController(viewModel: bottomSheetViewModel)
         
         bottomSheetViewModel.delegate = self

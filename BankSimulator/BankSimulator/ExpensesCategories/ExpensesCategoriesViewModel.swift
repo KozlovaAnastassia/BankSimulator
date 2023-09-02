@@ -33,7 +33,9 @@ class ExpensesCategoriesViewModel: ExpensesCategoriesViewModelProtocol {
     }
     
     func getDataFromCoreData() {
-        if let expense =  dataStorage.fetchDataFromCoreData(entityName: Constants.EntityName.expensesCategories, predicateFormat: nil, predicateValue: nil) {
+        if let expense =  dataStorage.fetchDataFromCoreData(entityName: Constants.EntityName.expensesCategories,
+                                                            predicateFormat: nil,
+                                                            predicateValue: nil) {
             for i in expense {
                 expensesArray.append(i as! ExpensesCategories)
             }
@@ -68,7 +70,9 @@ class ExpensesCategoriesViewModel: ExpensesCategoriesViewModelProtocol {
     
     func getDataFromBottomSheet(category: String?, money: Int?) {
         let id = (Int(expensesArray.last?.id ?? String()) ?? Int()) + 1
-        dataStorage.saveDataToCoreData(withData: [category ?? String(), String(id)], entityName: Constants.EntityName.expensesCategories, key: ["category", "id"]) { taskObject in
+        dataStorage.saveDataToCoreData(withData: [category ?? String(), String(id)],
+                                       entityName: Constants.EntityName.expensesCategories,
+                                       key: ["category", "id"]) { taskObject in
             expensesArray.append(taskObject as! ExpensesCategories)
         }
     }

@@ -20,7 +20,6 @@ class ExpensesChartView: UIView {
         let label = UILabel()
         label.text = "График расходов"
         label.font = UIFont.systemFont(ofSize: 28, weight: .heavy)
-        
         return label
     }()
 
@@ -66,7 +65,6 @@ class ExpensesChartView: UIView {
         labelChart.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.top.equalToSuperview().offset(100)
-
         }
     }
 }

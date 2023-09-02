@@ -49,7 +49,7 @@ class IncomeController: UIViewController, IncomeViewDelegate {
     func deleteRow(indexPath: IndexPath) {
         viewModel.deleteRow(indexPath: indexPath)
         
-        if self.viewModel.total[0].totalIncome == "0" {
+        if self.viewModel.totalIncomeArray[0].totalIncome == "0" {
             self.incomeView.currentBalance.text = "0.00 p"
         }
     }

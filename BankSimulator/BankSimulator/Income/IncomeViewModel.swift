@@ -9,7 +9,7 @@ import UIKit
 
 protocol IncomeViewModellProtocol {
     var incomeArray: [Income] {get set}
-    var total: [TotalSum] {get set}
+    var totalIncomeArray: [TotalSum] {get set}
     
     var result: (() -> Void)? {get set}
     var numberOfRowsInSection: Int {get}
@@ -25,7 +25,7 @@ protocol IncomeViewModellProtocol {
 class IncomeViewModell: IncomeViewModellProtocol {
     
     var incomeArray = [Income]()
-    var total = [TotalSum]()
+    var totalIncomeArray = [TotalSum]()
     var result: (() -> Void)?
     var numberOfRowsInSection: Int {return self.incomeArray.count }
     var dataStorage: LocalDataServiceProtocol
@@ -47,7 +47,7 @@ class IncomeViewModell: IncomeViewModellProtocol {
                                                           predicateFormat: nil,
                                                           predicateValue: nil)  {
             for i in sum {
-                total.append(i as! TotalSum)
+                totalIncomeArray.append(i as! TotalSum)
             }
         }
     }
@@ -63,18 +63,17 @@ class IncomeViewModell: IncomeViewModellProtocol {
             incomeArray.append(taskObject as! Income)
         }
         
-        if total.isEmpty  {
+        if totalIncomeArray.isEmpty  {
             dataStorage.saveDataToCoreData(
                                            withData: [moneyFormatted],
                                            entityName: Constants.EntityName.totalSum,
                                            key: ["totalIncome"])
             { taskObject in
-                total.append(taskObject as! TotalSum)
-                total[0].totalIncome = String(money ?? Int())
-        
+                totalIncomeArray.append(taskObject as! TotalSum)
+                totalIncomeArray[0].totalIncome = String(money ?? Int())
             }
         } else {
-            let newSum = (Int(total[0].totalIncome ?? String()) ?? Int()) + (money ?? Int())
+            let newSum = (Int(totalIncomeArray[0].totalIncome ?? String()) ?? Int()) + (money ?? Int())
             
             dataStorage.updateAttributeValue(
                                                 keyName: "totalIncome",
@@ -83,7 +82,6 @@ class IncomeViewModell: IncomeViewModellProtocol {
         }
     }
     
-    
     func getIncomeForCell(indexPath: IndexPath) -> String {
         let income = incomeArray[indexPath.row]
         let formatedMoney = Formuls.shared.twoNumbersAfterPoint(integer: Int(income.income ?? String()) ?? Int())
@@ -91,12 +89,12 @@ class IncomeViewModell: IncomeViewModellProtocol {
     }
     
     func getTotalSum() -> String {
-        return Formuls.shared.twoNumbersAfterPoint(integer: Int(total[0].totalIncome ?? String()) ?? Int())
+        return Formuls.shared.twoNumbersAfterPoint(integer: Int(totalIncomeArray[0].totalIncome ?? String()) ?? Int())
     }
     
     func deleteRow(indexPath: IndexPath) {
        let atribute = incomeArray.remove(at: indexPath.row)
-        let newTotalSum = (Int(total[0].totalIncome ??  String()) ?? Int()) - (Int(atribute.income ?? String()) ?? Int())
+        let newTotalSum = (Int(totalIncomeArray[0].totalIncome ??  String()) ?? Int()) - (Int(atribute.income ?? String()) ?? Int())
         
         dataStorage.deleteAttributeValue(keyName: "income",
                                          predicateValue: atribute.income ?? String(),
