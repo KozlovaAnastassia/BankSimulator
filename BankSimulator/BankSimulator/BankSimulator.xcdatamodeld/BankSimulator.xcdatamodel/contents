@@ -4,6 +4,11 @@
         <attribute name="category" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="ExpensesDetail" representedClassName="ExpensesDetail" syncable="YES" codeGenerationType="class">
+        <attribute name="category" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="String"/>
+        <attribute name="money" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Income" representedClassName="Income" syncable="YES" codeGenerationType="class">
         <attribute name="income" optional="YES" attributeType="String"/>
         <attribute name="totalSum" optional="YES" attributeType="String"/>
@@ -11,5 +16,6 @@
     <elements>
         <element name="ExpensesCategories" positionX="-63" positionY="0" width="128" height="59"/>
         <element name="Income" positionX="-63" positionY="-18" width="128" height="59"/>
+        <element name="ExpensesDetail" positionX="-63" positionY="9" width="128" height="74"/>
     </elements>
 </model>

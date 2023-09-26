@@ -14,6 +14,7 @@ protocol LocalDataServiceProtocol {
     func saveDataToCoreData(withData data: [String], entityName: String, key: [String], completion: (NSManagedObject) -> ())
     func fetchDataFromCoreData(entityName: String) -> [NSManagedObject]?
     func coreDataEntityIsEmpty(entityName: String) -> Bool
+    func deleteFromCoreData(entityName: String)
 }
 
 class LocalDataService: LocalDataServiceProtocol {

@@ -14,7 +14,7 @@ protocol ExpensesCategoriesViewModelProtocol {
     var dataStorage: LocalDataServiceProtocol {get set}
 
     func getDataFromCoreData()
-    func getExpensesCategory(indexPath: IndexPath) -> String
+    func getExpensesCategoryForCell(indexPath: IndexPath) -> String
     func addInitialArray()
 }
 
@@ -38,7 +38,7 @@ class ExpensesCategoriesViewModel: ExpensesCategoriesViewModelProtocol {
         }
     }
     
-    func getExpensesCategory(indexPath: IndexPath) -> String {
+    func getExpensesCategoryForCell(indexPath: IndexPath) -> String {
         expensesArray[indexPath.row].category ?? String()
     }
     
@@ -53,7 +53,7 @@ class ExpensesCategoriesViewModel: ExpensesCategoriesViewModelProtocol {
     }
     
     func pushToBottomSheetVC(_ indexPath: IndexPath) -> ExpensesDetailController {
-        let vc2 = ExpensesDetailController()
+        let vc2 = ExpensesDetailController(viewModel: ExpensesDetailViewModel(dataStorage: LocalDataService()))
         let id = expensesArray[indexPath.row].id ?? String()
         vc2.getID(id: id)
         return vc2

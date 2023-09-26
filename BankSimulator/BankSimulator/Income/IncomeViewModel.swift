@@ -5,7 +5,6 @@
 //  Created by Анастасия on 25.09.2023.
 //
 
-import Foundation
 import UIKit
 
 protocol IncomeViewModellProtocol {
@@ -15,7 +14,7 @@ protocol IncomeViewModellProtocol {
     var dataStorage: LocalDataServiceProtocol {get set}
     
     func getDataFromCoreData()
-    func getIncome(indexPath: IndexPath) -> String
+    func getIncomeForCell(indexPath: IndexPath) -> String
     func getTotalSum() -> String
 }
 
@@ -38,7 +37,7 @@ class IncomeViewModell: IncomeViewModellProtocol {
         }
     }
     
-    func getIncome(indexPath: IndexPath) -> String {
+    func getIncomeForCell(indexPath: IndexPath) -> String {
         let income = incomeArray[indexPath.row]
         return income.income ?? String()
     }

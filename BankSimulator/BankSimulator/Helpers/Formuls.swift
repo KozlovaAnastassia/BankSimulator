@@ -26,4 +26,16 @@ class Formuls {
             return ""
         }
     }
+    
+    func currentDateString() -> String {
+        let currantDate = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let noww = dateFormatter.string(from: currantDate)
+        
+        let date = dateFormatter.date(from: noww)!
+        dateFormatter.dateFormat = "dd.MM.yy"
+        let now = dateFormatter.string(from: date)
+        return now
+    }
 }

@@ -6,12 +6,11 @@
 //
 
 import UIKit
-import CoreData
 
 class IncomeController: UIViewController, IncomeViewDelegate {
 
-    private let newView = IncomeView()
-    var viewModel: IncomeViewModellProtocol
+    private let incomeView = IncomeView()
+    private var viewModel: IncomeViewModellProtocol
     
     init(viewModel: IncomeViewModellProtocol) {
         self.viewModel = viewModel
@@ -23,24 +22,24 @@ class IncomeController: UIViewController, IncomeViewDelegate {
     }
     override func loadView() {
         super.loadView()
-        view = newView
+        view = incomeView
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.getDataFromCoreData()
         viewModel.result = {
-            self.newView.sentData()
+            self.incomeView.sentData()
         }
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        newView.delegate = self
+        incomeView.delegate = self
     }
     
-    func getDataForCell(indexPath: IndexPath) -> String {
-        viewModel.getIncome(indexPath: indexPath)
+    func getIncomeForCell(indexPath: IndexPath) -> String {
+        viewModel.getIncomeForCell(indexPath: indexPath)
     }
     
     func getNumbersOfSection() -> Int {
@@ -52,7 +51,7 @@ class IncomeController: UIViewController, IncomeViewDelegate {
         return Formuls.shared.twoNumbersAfterPoint(integer: Int(totalSum ?? String()) ?? Int())
     }
     
-    func transit() {
+    func tapButtonAddIncome() {
         let vc = BottomSheetController(moneyPlaceholder: "Введите сумму", categoryPlaceholder: nil, buttonAddTitle: "Добавить доход")
         vc.delegate = self
         if let sheet = vc.sheetPresentationController{
@@ -74,6 +73,6 @@ extension IncomeController: BottomSheetDelegate {
                                             {taskObject in
                                                 viewModel.incomeArray.append(taskObject as! Income)
                                             }
-        newView.sentData()
+        incomeView.sentData()
     }
 }

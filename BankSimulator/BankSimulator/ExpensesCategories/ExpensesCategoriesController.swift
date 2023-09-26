@@ -6,16 +6,24 @@
 //
 
 import UIKit
-import CoreData
 
 class ExpensesCategoriesController: UIViewController, ExpensesCategoriesViewDelegate {
     
-    let viewModel = ExpensesCategoriesViewModel(dataStorage: LocalDataService())
-    var newView = ExpensesCategoriesView()
+    let viewModel: ExpensesCategoriesViewModel
+    var expensesCategoriesView = ExpensesCategoriesView()
+    
+    init(viewModel: ExpensesCategoriesViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func loadView() {
         super.loadView()
-        view = newView
+        view = expensesCategoriesView
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -23,18 +31,18 @@ class ExpensesCategoriesController: UIViewController, ExpensesCategoriesViewDele
         
         viewModel.addInitialArray()
         viewModel.result = {
-            self.newView.reloadTableView()
+            self.expensesCategoriesView.reloadTableView()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         viewModel.getDataFromCoreData()
-       
-        newView.delegate = self
+        expensesCategoriesView.delegate = self
     }
   
-    func transit() {
+    func tapButtonAddExpenses() {
         let vc = BottomSheetController(moneyPlaceholder: nil, categoryPlaceholder: "Введите категорию", buttonAddTitle: "Добавить категорию расходов")
         vc.delegate = self
         if let sheet = vc.sheetPresentationController{
@@ -43,8 +51,8 @@ class ExpensesCategoriesController: UIViewController, ExpensesCategoriesViewDele
         present(vc, animated: true)
     }
     
-    func getDataForCell(indexPath: IndexPath) -> String {
-        viewModel.getExpensesCategory(indexPath: indexPath)
+    func getExpensesCategoryForCell(indexPath: IndexPath) -> String {
+        viewModel.getExpensesCategoryForCell(indexPath: indexPath)
     }
     
     func getNumbersOfSection() -> Int {
@@ -64,6 +72,6 @@ extension ExpensesCategoriesController: BottomSheetDelegate {
         viewModel.dataStorage.saveDataToCoreData(withData: [category ?? String(), String(id)], entityName: "ExpensesCategories", key: ["category", "id"]) { taskObject in
             viewModel.expensesArray.append(taskObject as! ExpensesCategories)
         }
-        self.newView.reloadTableView()
+        self.expensesCategoriesView.reloadTableView()
     }
 }

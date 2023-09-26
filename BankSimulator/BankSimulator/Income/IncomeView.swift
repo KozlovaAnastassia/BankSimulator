@@ -6,11 +6,10 @@
 //
 
 import UIKit
-import CoreData
 
 protocol IncomeViewDelegate {
-    func transit()
-    func getDataForCell(indexPath: IndexPath) -> String
+    func tapButtonAddIncome()
+    func getIncomeForCell(indexPath: IndexPath) -> String
     func getNumbersOfSection() -> Int
     func getTotalSum() -> String
 }
@@ -90,7 +89,7 @@ class IncomeView: UIView  {
     }
     
     @objc func TapButtonAddIncome() {
-        delegate?.transit()
+        delegate?.tapButtonAddIncome()
     }
     
     func setTable() {
@@ -140,7 +139,7 @@ extension IncomeView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIndetifire , for: indexPath)
-        cell.textLabel?.text = delegate?.getDataForCell(indexPath: indexPath)
+        cell.textLabel?.text = delegate?.getIncomeForCell(indexPath: indexPath)
         currentBalance.text = delegate?.getTotalSum()
         return cell
     }

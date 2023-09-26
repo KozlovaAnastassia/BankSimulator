@@ -8,8 +8,8 @@
 import UIKit
 
 protocol ExpensesCategoriesViewDelegate {
-    func transit()
-    func getDataForCell(indexPath: IndexPath) -> String
+    func tapButtonAddExpenses()
+    func getExpensesCategoryForCell(indexPath: IndexPath) -> String
     func getNumbersOfSection() -> Int
     func pushToBottomSheetVC(indexPath: IndexPath)
 }
@@ -43,7 +43,7 @@ class ExpensesCategoriesView: UIView {
     }
     
     @objc func tapButtonAddExpenses(){
-        delegate?.transit()
+        delegate?.tapButtonAddExpenses()
     }
     
     func setConstraints() {
@@ -81,7 +81,7 @@ extension ExpensesCategoriesView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identifireCell, for: indexPath)
         
-        cell.textLabel?.text = delegate?.getDataForCell(indexPath: indexPath)
+        cell.textLabel?.text = delegate?.getExpensesCategoryForCell(indexPath: indexPath)
         cell.accessoryType = .disclosureIndicator
         cell.addCustomDisclosureIndicator(with: UIColor(hexString: "#007AFF"))
         return cell
