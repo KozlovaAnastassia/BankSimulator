@@ -18,7 +18,7 @@ class ExpensesDetailView: UIView {
     let tableView = UITableView()
     let cellIndentifire = "ExpensesDetailCell"
     weak var delegate: ExpensesDetailViewDelegate?
-
+    
     lazy var ButtonPaymentSchedule: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(hexString: "#007AFF")

@@ -6,11 +6,12 @@
 //
 
 import UIKit
+import CoreData
 
 class ExpensesDetailController: UIViewController, ExpensesDetailViewDelegate {
     let expensesDetailView = ExpensesDetailView()
     var viewModel: ExpensesDetailViewModelProtocol
-    private var itemID = String()
+    var itemID = String()
     
     init(viewModel: ExpensesDetailViewModelProtocol) {
         self.viewModel = viewModel
@@ -30,7 +31,7 @@ class ExpensesDetailController: UIViewController, ExpensesDetailViewDelegate {
         super.viewDidLoad()
         
         expensesDetailView.delegate = self
-        viewModel.getDataFromCoreData()
+        viewModel.getDataFromCoreData(id: itemID)
         viewModel.result = {
             self.expensesDetailView.reloadTableView()
         }
@@ -67,8 +68,11 @@ extension ExpensesDetailController: BottomSheetDelegate {
     func transit(_ category: String?, _ money: Int?) {
         let date = Formuls.shared.currentDateString()
         let moneyFormatted = Formuls.shared.twoNumbersAfterPoint(integer: Int(money ?? Int()) )
-        let arrayValues = [category ?? String(), date, moneyFormatted]
-        let arrayKey = ["category", "date", "money"]
+        let id = itemID
+        
+        let arrayValues = [category ?? String(), date, moneyFormatted, id]
+        let arrayKey = ["category", "date", "money", "id"]
+     
         
         viewModel.dataStorage.saveDataToCoreData(withData: arrayValues, entityName: "ExpensesDetail", key: arrayKey) { taskObject in
             viewModel.expensesDetailArray.append(taskObject as! ExpensesDetail)

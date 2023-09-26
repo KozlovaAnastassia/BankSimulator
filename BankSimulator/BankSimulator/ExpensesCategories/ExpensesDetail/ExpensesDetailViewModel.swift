@@ -14,7 +14,7 @@ protocol ExpensesDetailViewModelProtocol {
     var dataStorage: LocalDataServiceProtocol {get set}
     
     func getExpensesForCell(indexPath: IndexPath) -> ExpensesDetail
-    func getDataFromCoreData()
+    func getDataFromCoreData(id: String)
     
 }
 
@@ -22,6 +22,7 @@ class ExpensesDetailViewModel: ExpensesDetailViewModelProtocol {
     
     var expensesDetailArray = [ExpensesDetail]()
     var dataStorage: LocalDataServiceProtocol
+    var itemID = String()
     var result: (() -> Void)?
     var numberOfRowsInSection: Int {return self.expensesDetailArray.count }
     
@@ -33,8 +34,8 @@ class ExpensesDetailViewModel: ExpensesDetailViewModelProtocol {
         expensesDetailArray[indexPath.row]
     }
     
-    func getDataFromCoreData() {
-        if let expense =  dataStorage.fetchDataFromCoreData(entityName: "ExpensesDetail") {
+    func getDataFromCoreData(id: String) {
+        if let expense =  dataStorage.fetchDataFromCoreData(entityName: "ExpensesDetail", predicateFormat: "id == %@", predicateValue: id){
             for i in expense {
                 expensesDetailArray.append(i as! ExpensesDetail)
             }

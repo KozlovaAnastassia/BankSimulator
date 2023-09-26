@@ -31,7 +31,7 @@ class ExpensesCategoriesViewModel: ExpensesCategoriesViewModelProtocol {
     }
     
     func getDataFromCoreData() {
-        if let expense =  dataStorage.fetchDataFromCoreData(entityName: "ExpensesCategories") {
+        if let expense =  dataStorage.fetchDataFromCoreData(entityName: "ExpensesCategories", predicateFormat: nil, predicateValue: nil) {
             for i in expense {
                 expensesArray.append(i as! ExpensesCategories)
             }
@@ -44,8 +44,10 @@ class ExpensesCategoriesViewModel: ExpensesCategoriesViewModelProtocol {
     
     func addInitialArray() {
         if   dataStorage.coreDataEntityIsEmpty(entityName: "ExpensesCategories") {
+            var id = 0
             for i in initialArray {
-                dataStorage.saveDataToCoreData(withData: [i], entityName: "ExpensesCategories", key: ["category"]) { taskObject in
+                id += 1
+                dataStorage.saveDataToCoreData(withData: [i, String(id)], entityName: "ExpensesCategories", key: ["category", "id"]) { taskObject in
                     expensesArray.append(taskObject as! ExpensesCategories)
                 }
             }
@@ -56,6 +58,7 @@ class ExpensesCategoriesViewModel: ExpensesCategoriesViewModelProtocol {
         let vc2 = ExpensesDetailController(viewModel: ExpensesDetailViewModel(dataStorage: LocalDataService()))
         let id = expensesArray[indexPath.row].id ?? String()
         vc2.getID(id: id)
+        
         return vc2
     }
 }

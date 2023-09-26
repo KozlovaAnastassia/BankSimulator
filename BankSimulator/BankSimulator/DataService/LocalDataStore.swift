@@ -12,7 +12,7 @@ import CoreData
 protocol LocalDataServiceProtocol {
     func getContext() -> NSManagedObjectContext
     func saveDataToCoreData(withData data: [String], entityName: String, key: [String], completion: (NSManagedObject) -> ())
-    func fetchDataFromCoreData(entityName: String) -> [NSManagedObject]?
+    func fetchDataFromCoreData(entityName: String, predicateFormat: String?, predicateValue: String?) -> [NSManagedObject]?
     func coreDataEntityIsEmpty(entityName: String) -> Bool
     func deleteFromCoreData(entityName: String)
 }
@@ -44,9 +44,12 @@ class LocalDataService: LocalDataServiceProtocol {
         }
     }
     
-    func fetchDataFromCoreData(entityName: String) -> [NSManagedObject]? {
+    func fetchDataFromCoreData(entityName: String, predicateFormat: String?, predicateValue: String?) -> [NSManagedObject]? {
         let context = getContext()
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: entityName)
+        if let pFormat = predicateFormat, let pValue = predicateValue {
+            fetchRequest.predicate = NSPredicate(format: pFormat, pValue)
+        }
         do {
             let result = try context.fetch(fetchRequest)
             if let objects = result as? [NSManagedObject] {
