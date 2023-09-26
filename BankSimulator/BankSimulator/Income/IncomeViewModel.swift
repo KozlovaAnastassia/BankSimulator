@@ -17,12 +17,9 @@ protocol IncomeViewModellProtocol {
     func getDataFromCoreData()
     func getIncome(indexPath: IndexPath) -> String
     func getTotalSum() -> String
-    func numberOrRows() -> Int
 }
 
-
 class IncomeViewModell: IncomeViewModellProtocol {
-    
     
     var incomeArray = [Income]()
     var result: (() -> Void)?
@@ -49,10 +46,6 @@ class IncomeViewModell: IncomeViewModellProtocol {
     func getTotalSum() -> String {
         return incomeArray.last?.totalSum ?? String()
     }
-    
-    func numberOrRows() -> Int {
-           return self.incomeArray.count
-       }
 }
 
 

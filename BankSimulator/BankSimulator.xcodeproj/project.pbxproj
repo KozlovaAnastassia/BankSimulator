@@ -22,6 +22,10 @@
 		5DC421802AC1C0BE00652337 /* IncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4217F2AC1C0BE00652337 /* IncomeView.swift */; };
 		5DC421822AC1D12200652337 /* Formuls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC421812AC1D12200652337 /* Formuls.swift */; };
 		5DC421842AC1EE0C00652337 /* IncomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC421832AC1EE0C00652337 /* IncomeViewModel.swift */; };
+		5DE0C3422AC22DE40070C50C /* ExpensesCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE0C3412AC22DE40070C50C /* ExpensesCategoriesView.swift */; };
+		5DE0C3442AC2319F0070C50C /* ExpensesDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE0C3432AC2319F0070C50C /* ExpensesDetailController.swift */; };
+		5DE0C3462AC2349E0070C50C /* ExpensesCategoriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE0C3452AC2349E0070C50C /* ExpensesCategoriesViewModel.swift */; };
+		5DE0C3482AC2377A0070C50C /* Extension+UiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE0C3472AC2377A0070C50C /* Extension+UiTableViewCell.swift */; };
 		643C0481714FAE32BB519161 /* Pods_BankSimulator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 787C7CD63DD71C3D651D2BA9 /* Pods_BankSimulator.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +47,10 @@
 		5DC4217F2AC1C0BE00652337 /* IncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeView.swift; sourceTree = "<group>"; };
 		5DC421812AC1D12200652337 /* Formuls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formuls.swift; sourceTree = "<group>"; };
 		5DC421832AC1EE0C00652337 /* IncomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewModel.swift; sourceTree = "<group>"; };
+		5DE0C3412AC22DE40070C50C /* ExpensesCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesCategoriesView.swift; sourceTree = "<group>"; };
+		5DE0C3432AC2319F0070C50C /* ExpensesDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesDetailController.swift; sourceTree = "<group>"; };
+		5DE0C3452AC2349E0070C50C /* ExpensesCategoriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesCategoriesViewModel.swift; sourceTree = "<group>"; };
+		5DE0C3472AC2377A0070C50C /* Extension+UiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UiTableViewCell.swift"; sourceTree = "<group>"; };
 		6F3430AAB2BE4F7CD464B650 /* Pods-BankSimulator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BankSimulator.release.xcconfig"; path = "Target Support Files/Pods-BankSimulator/Pods-BankSimulator.release.xcconfig"; sourceTree = "<group>"; };
 		787C7CD63DD71C3D651D2BA9 /* Pods_BankSimulator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BankSimulator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CB52DEC2615906B924475743 /* Pods-BankSimulator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BankSimulator.debug.xcconfig"; path = "Target Support Files/Pods-BankSimulator/Pods-BankSimulator.debug.xcconfig"; sourceTree = "<group>"; };
@@ -77,6 +85,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5DABE4772AC32DD000312A3C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				5DC421812AC1D12200652337 /* Formuls.swift */,
+				5DC4217D2AC1BE2700652337 /* Expenses+UIColor.swift */,
+				5DE0C3472AC2377A0070C50C /* Extension+UiTableViewCell.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		5DC4214C2AC1BBCA00652337 = {
 			isa = PBXGroup;
 			children = (
@@ -98,11 +116,12 @@
 		5DC421572AC1BBCB00652337 /* BankSimulator */ = {
 			isa = PBXGroup;
 			children = (
+				5DC4216F2AC1BC6A00652337 /* Settings */,
+				5DABE4772AC32DD000312A3C /* Helpers */,
 				5DC421752AC1BD0900652337 /* DataService */,
 				5DC421742AC1BCE500652337 /* BottomSheet */,
-				5DC421732AC1BCD300652337 /* Expenses */,
+				5DC421732AC1BCD300652337 /* ExpensesCategories */,
 				5DC421722AC1BCC400652337 /* Income */,
-				5DC4216F2AC1BC6A00652337 /* Settings */,
 				5DC4215E2AC1BBCB00652337 /* Main.storyboard */,
 				5DC421642AC1BBD200652337 /* Assets.xcassets */,
 				5DC421662AC1BBD200652337 /* LaunchScreen.storyboard */,
@@ -117,9 +136,7 @@
 			children = (
 				5DC421582AC1BBCB00652337 /* AppDelegate.swift */,
 				5DC4215A2AC1BBCB00652337 /* SceneDelegate.swift */,
-				5DC421812AC1D12200652337 /* Formuls.swift */,
 				5DC421702AC1BC9E00652337 /* TabBar.swift */,
-				5DC4217D2AC1BE2700652337 /* Expenses+UIColor.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -127,20 +144,22 @@
 		5DC421722AC1BCC400652337 /* Income */ = {
 			isa = PBXGroup;
 			children = (
-				5DC4215C2AC1BBCB00652337 /* IncomeController.swift */,
 				5DC421832AC1EE0C00652337 /* IncomeViewModel.swift */,
+				5DC4215C2AC1BBCB00652337 /* IncomeController.swift */,
 				5DC4217F2AC1C0BE00652337 /* IncomeView.swift */,
 			);
 			path = Income;
 			sourceTree = "<group>";
 		};
-		5DC421732AC1BCD300652337 /* Expenses */ = {
+		5DC421732AC1BCD300652337 /* ExpensesCategories */ = {
 			isa = PBXGroup;
 			children = (
+				5DE0C3452AC2349E0070C50C /* ExpensesCategoriesViewModel.swift */,
 				5DC4217A2AC1BDC400652337 /* ExpensesController.swift */,
+				5DE0C3412AC22DE40070C50C /* ExpensesCategoriesView.swift */,
 				5DC4217C2AC1BDE300652337 /* ExpensesDetail */,
 			);
-			path = Expenses;
+			path = ExpensesCategories;
 			sourceTree = "<group>";
 		};
 		5DC421742AC1BCE500652337 /* BottomSheet */ = {
@@ -162,6 +181,7 @@
 		5DC4217C2AC1BDE300652337 /* ExpensesDetail */ = {
 			isa = PBXGroup;
 			children = (
+				5DE0C3432AC2319F0070C50C /* ExpensesDetailController.swift */,
 			);
 			path = ExpensesDetail;
 			sourceTree = "<group>";
@@ -284,15 +304,19 @@
 				5DC421822AC1D12200652337 /* Formuls.swift in Sources */,
 				5DC4215D2AC1BBCB00652337 /* IncomeController.swift in Sources */,
 				5DC421802AC1C0BE00652337 /* IncomeView.swift in Sources */,
+				5DE0C3482AC2377A0070C50C /* Extension+UiTableViewCell.swift in Sources */,
 				5DC421842AC1EE0C00652337 /* IncomeViewModel.swift in Sources */,
+				5DE0C3462AC2349E0070C50C /* ExpensesCategoriesViewModel.swift in Sources */,
 				5DC421592AC1BBCB00652337 /* AppDelegate.swift in Sources */,
 				5DC421632AC1BBCB00652337 /* BankSimulator.xcdatamodeld in Sources */,
 				5DC421772AC1BD2700652337 /* LocalDataStore.swift in Sources */,
+				5DE0C3422AC22DE40070C50C /* ExpensesCategoriesView.swift in Sources */,
 				5DC4215B2AC1BBCB00652337 /* SceneDelegate.swift in Sources */,
 				5DC421712AC1BC9E00652337 /* TabBar.swift in Sources */,
 				5DC4217E2AC1BE2700652337 /* Expenses+UIColor.swift in Sources */,
 				5DC421792AC1BD6200652337 /* BottomSheetController.swift in Sources */,
 				5DC4217B2AC1BDC400652337 /* ExpensesController.swift in Sources */,
+				5DE0C3442AC2319F0070C50C /* ExpensesDetailController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,9 +11,7 @@ import CoreData
 class IncomeController: UIViewController, IncomeViewDelegate {
 
     private let newView = IncomeView()
-    private let dataStorage = LocalDataService()
     var viewModel: IncomeViewModellProtocol
-    let cellIndetifire = "CellIncome"
     
     init(viewModel: IncomeViewModellProtocol) {
         self.viewModel = viewModel
@@ -22,6 +20,10 @@ class IncomeController: UIViewController, IncomeViewDelegate {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    override func loadView() {
+        super.loadView()
+        view = newView
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,7 +36,6 @@ class IncomeController: UIViewController, IncomeViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view = newView
         newView.delegate = self
     }
     
@@ -43,7 +44,7 @@ class IncomeController: UIViewController, IncomeViewDelegate {
     }
     
     func getNumbersOfSection() -> Int {
-        viewModel.numberOrRows()
+        viewModel.numberOfRowsInSection
     }
     
     func getTotalSum() -> String {
@@ -67,11 +68,12 @@ extension IncomeController: BottomSheetDelegate {
         let newSum = (Int(viewModel.incomeArray.last?.totalSum ?? String()) ?? Int()) + (money ?? Int())
         let moneyFormatted = Formuls.shared.twoNumbersAfterPoint(integer: money ?? Int())
         
-        viewModel.dataStorage.saveDataToCoreData(withData: [String(moneyFormatted), String(newSum)],
+        viewModel.dataStorage.saveDataToCoreData(
+                                       withData: [String(moneyFormatted), String(newSum)],
                                        entityName: "Income", key: ["income", "totalSum"])
-                                      {taskObject in
-                                          viewModel.incomeArray.append(taskObject as! Income)
-        }
-            self.newView.sentData()
+                                            {taskObject in
+                                                viewModel.incomeArray.append(taskObject as! Income)
+                                            }
+        newView.sentData()
     }
 }
