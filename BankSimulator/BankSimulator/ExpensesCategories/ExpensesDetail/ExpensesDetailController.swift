@@ -38,11 +38,11 @@ class ExpensesDetailController: UIViewController, ExpensesDetailViewDelegate {
     }
     
      func tapButtonPaymentSchedule() {
-         navigationController?.pushViewController(ExpensesChartViewController(itemId: itemID), animated: true)
+         navigationController?.pushViewController(ExpensesChartViewController(itemId: itemID, viewModel: ExpensesChartViewModel(dataStorage: LocalDataService())), animated: true)
     }
     
      func tapButtonAddExpenses() {
-        let vc = BottomSheetController(moneyPlaceholder: "Введите сумму расхода", categoryPlaceholder: "Введите категорию расхода", buttonAddTitle: "Добавить расход")
+        let vc = BottomSheetController(moneyPlaceholder: "Сумма", categoryPlaceholder: "Наименование", buttonAddTitle: "Добавить расход")
         vc.delegate = self
         if let sheet = vc.sheetPresentationController{
             sheet.detents = [.medium()]
@@ -68,7 +68,6 @@ extension ExpensesDetailController: BottomSheetDelegate {
     func transit(_ category: String?, _ money: Int?) {
         let date = Formuls.shared.currentDateString()
         let moneyFormatted = String(money ?? Int())
-        //Formuls.shared.twoNumbersAfterPoint(integer: Int(money ?? Int()))
         let id = itemID
         
         let arrayValues = [category ?? String(), date, moneyFormatted, id]

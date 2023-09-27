@@ -16,7 +16,6 @@ class TabBar: UITabBarController {
         viewControllers = [
             setTabBar(viewController: IncomeController(viewModel: IncomeViewModell(dataStorage: LocalDataService())), title: "Доходы", image: UIImage(systemName: "circle")),
             setViewController(viewController: UINavigationController(rootViewController: ExpensesCategoriesController(viewModel: ExpensesCategoriesViewModel(dataStorage: LocalDataService()))), title: "Расходы", image: UIImage(systemName: "circle")),
-            setViewController(viewController: UINavigationController(rootViewController: ChartIncomeExpenseController()) , title: "График", image: UIImage(systemName: "circle"))
         ]
     }
     

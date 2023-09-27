@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5D8932EA2AC42B2C0058D004 /* ExpensesChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8932E92AC42B2C0058D004 /* ExpensesChartViewController.swift */; };
-		5D8932ED2AC4897B0058D004 /* ChartIncomeExpenseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8932EC2AC4897B0058D004 /* ChartIncomeExpenseController.swift */; };
+		5D8932EF2AC49B870058D004 /* ExpensesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8932EE2AC49B870058D004 /* ExpensesChartView.swift */; };
+		5D8932F12AC49E000058D004 /* ExpensesChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8932F02AC49E000058D004 /* ExpensesChartViewModel.swift */; };
 		5DABE4792AC33CE800312A3C /* ExpensesDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DABE4782AC33CE800312A3C /* ExpensesDetailView.swift */; };
 		5DABE47B2AC33D0400312A3C /* ExpensesDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DABE47A2AC33D0400312A3C /* ExpensesDetailViewModel.swift */; };
 		5DABE47D2AC33E7100312A3C /* ExpensesDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DABE47C2AC33E7100312A3C /* ExpensesDetailCell.swift */; };
@@ -36,7 +37,8 @@
 
 /* Begin PBXFileReference section */
 		5D8932E92AC42B2C0058D004 /* ExpensesChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesChartViewController.swift; sourceTree = "<group>"; };
-		5D8932EC2AC4897B0058D004 /* ChartIncomeExpenseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartIncomeExpenseController.swift; sourceTree = "<group>"; };
+		5D8932EE2AC49B870058D004 /* ExpensesChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesChartView.swift; sourceTree = "<group>"; };
+		5D8932F02AC49E000058D004 /* ExpensesChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesChartViewModel.swift; sourceTree = "<group>"; };
 		5DABE4782AC33CE800312A3C /* ExpensesDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesDetailView.swift; sourceTree = "<group>"; };
 		5DABE47A2AC33D0400312A3C /* ExpensesDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesDetailViewModel.swift; sourceTree = "<group>"; };
 		5DABE47C2AC33E7100312A3C /* ExpensesDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesDetailCell.swift; sourceTree = "<group>"; };
@@ -99,16 +101,10 @@
 			isa = PBXGroup;
 			children = (
 				5D8932E92AC42B2C0058D004 /* ExpensesChartViewController.swift */,
+				5D8932EE2AC49B870058D004 /* ExpensesChartView.swift */,
+				5D8932F02AC49E000058D004 /* ExpensesChartViewModel.swift */,
 			);
 			path = ExpensesDetailChart;
-			sourceTree = "<group>";
-		};
-		5D8932EB2AC4890E0058D004 /* ChartIncomeExpense */ = {
-			isa = PBXGroup;
-			children = (
-				5D8932EC2AC4897B0058D004 /* ChartIncomeExpenseController.swift */,
-			);
-			path = ChartIncomeExpense;
 			sourceTree = "<group>";
 		};
 		5DABE4772AC32DD000312A3C /* Helpers */ = {
@@ -146,7 +142,6 @@
 				5DABE4772AC32DD000312A3C /* Helpers */,
 				5DC421752AC1BD0900652337 /* DataService */,
 				5DC421742AC1BCE500652337 /* BottomSheet */,
-				5D8932EB2AC4890E0058D004 /* ChartIncomeExpense */,
 				5DC421732AC1BCD300652337 /* ExpensesCategories */,
 				5DC421722AC1BCC400652337 /* Income */,
 				5DC4215E2AC1BBCB00652337 /* Main.storyboard */,
@@ -335,14 +330,15 @@
 				5DC421822AC1D12200652337 /* Formuls.swift in Sources */,
 				5DC4215D2AC1BBCB00652337 /* IncomeController.swift in Sources */,
 				5DC421802AC1C0BE00652337 /* IncomeView.swift in Sources */,
+				5D8932EF2AC49B870058D004 /* ExpensesChartView.swift in Sources */,
 				5DE0C3482AC2377A0070C50C /* Extension+UiTableViewCell.swift in Sources */,
 				5DC421842AC1EE0C00652337 /* IncomeViewModel.swift in Sources */,
+				5D8932F12AC49E000058D004 /* ExpensesChartViewModel.swift in Sources */,
 				5DE0C3462AC2349E0070C50C /* ExpensesCategoriesViewModel.swift in Sources */,
 				5DC421592AC1BBCB00652337 /* AppDelegate.swift in Sources */,
 				5DABE4792AC33CE800312A3C /* ExpensesDetailView.swift in Sources */,
 				5DC421632AC1BBCB00652337 /* BankSimulator.xcdatamodeld in Sources */,
 				5DC421772AC1BD2700652337 /* LocalDataStore.swift in Sources */,
-				5D8932ED2AC4897B0058D004 /* ChartIncomeExpenseController.swift in Sources */,
 				5DABE47D2AC33E7100312A3C /* ExpensesDetailCell.swift in Sources */,
 				5D8932EA2AC42B2C0058D004 /* ExpensesChartViewController.swift in Sources */,
 				5DE0C3422AC22DE40070C50C /* ExpensesCategoriesView.swift in Sources */,

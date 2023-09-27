@@ -52,7 +52,7 @@ class IncomeController: UIViewController, IncomeViewDelegate {
     }
     
     func tapButtonAddIncome() {
-        let vc = BottomSheetController(moneyPlaceholder: "Введите сумму", categoryPlaceholder: nil, buttonAddTitle: "Добавить доход")
+        let vc = BottomSheetController(moneyPlaceholder: "Сумма", categoryPlaceholder: nil, buttonAddTitle: "Добавить доход")
         vc.delegate = self
         if let sheet = vc.sheetPresentationController{
             sheet.detents = [.medium()]
