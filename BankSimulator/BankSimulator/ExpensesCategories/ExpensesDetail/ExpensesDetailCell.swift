@@ -64,7 +64,7 @@ class ExpensesDetailCell: UITableViewCell {
     func configure(_ viewModel: ExpensesDetail) {
         labelCategory.text = viewModel.category
         labelDate.text = viewModel.date
-        labelExpense.text = viewModel.money
+        labelExpense.text = Formuls.shared.twoNumbersAfterPoint(integer: Int(viewModel.money ?? String()) ?? Int())
     }
 }
 

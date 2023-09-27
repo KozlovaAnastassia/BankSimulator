@@ -15,7 +15,6 @@ protocol ExpensesDetailViewModelProtocol {
     
     func getExpensesForCell(indexPath: IndexPath) -> ExpensesDetail
     func getDataFromCoreData(id: String)
-    
 }
 
 class ExpensesDetailViewModel: ExpensesDetailViewModelProtocol {
@@ -41,5 +40,4 @@ class ExpensesDetailViewModel: ExpensesDetailViewModelProtocol {
             }
         }
     }
-    
 }

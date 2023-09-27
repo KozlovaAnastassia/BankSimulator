@@ -38,7 +38,7 @@ class ExpensesDetailController: UIViewController, ExpensesDetailViewDelegate {
     }
     
      func tapButtonPaymentSchedule() {
-       // navigationController?.pushViewController(PaymentSchedule(), animated: true)
+         navigationController?.pushViewController(ExpensesChartViewController(itemId: itemID), animated: true)
     }
     
      func tapButtonAddExpenses() {
@@ -67,13 +67,13 @@ extension ExpensesDetailController: BottomSheetDelegate {
     
     func transit(_ category: String?, _ money: Int?) {
         let date = Formuls.shared.currentDateString()
-        let moneyFormatted = Formuls.shared.twoNumbersAfterPoint(integer: Int(money ?? Int()) )
+        let moneyFormatted = String(money ?? Int())
+        //Formuls.shared.twoNumbersAfterPoint(integer: Int(money ?? Int()))
         let id = itemID
         
         let arrayValues = [category ?? String(), date, moneyFormatted, id]
         let arrayKey = ["category", "date", "money", "id"]
      
-        
         viewModel.dataStorage.saveDataToCoreData(withData: arrayValues, entityName: "ExpensesDetail", key: arrayKey) { taskObject in
             viewModel.expensesDetailArray.append(taskObject as! ExpensesDetail)
         }
