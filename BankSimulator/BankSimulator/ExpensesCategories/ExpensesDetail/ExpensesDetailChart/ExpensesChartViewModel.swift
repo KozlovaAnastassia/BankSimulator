@@ -27,11 +27,8 @@ class ExpensesChartViewModel: ExpensesChartViewModelProtocol {
         self.dataStorage = dataStorage
     }
     
-   
-    
     private func getFormattedDateArray(dateArray: [String]) -> [String] {
         var newDataArray = [String]()
-        
         for i in dateArray {
             var a = String(i)
             for _ in 1...3 {
@@ -70,9 +67,9 @@ class ExpensesChartViewModel: ExpensesChartViewModelProtocol {
     
     private func setupLineChartData(_ lineChartView: LineChartView, dataPoints: [String], values: [Int]) {
         
-       let dateFormattedArray = getFormattedDateArray(dateArray: dataPoints)
+        let dateFormattedArray = getFormattedDateArray(dateArray: dataPoints)
         let dataEntries = getChartDataEntry(values: values, dateFormattedArray: dateFormattedArray)
-       let data = setupLineChartData(dataEntries: dataEntries)
+        let data = setupLineChartData(dataEntries: dataEntries)
         
         lineChartView.data = data
         lineChartView.xAxis.setLabelCount(dateFormattedArray.count, force: true)

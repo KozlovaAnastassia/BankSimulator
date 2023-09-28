@@ -20,8 +20,8 @@ protocol ExpensesCategoriesViewModelProtocol {
 
 class ExpensesCategoriesViewModel: ExpensesCategoriesViewModelProtocol {
     
+    private let initialArray = ["Дом", "Продукты", "Досуг", "Постоянные траты", "Путешествия"]
     var expensesArray = [ExpensesCategories]()
-    let initialArray = ["Дом", "Продукты", "Досуг", "Постоянные траты", "Путешествия"]
     var result: (() -> Void)?
     var numberOfRowsInSection: Int {return self.expensesArray.count }
     var dataStorage: LocalDataServiceProtocol

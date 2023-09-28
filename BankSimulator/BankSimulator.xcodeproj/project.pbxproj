@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5D434B0C2AC5B00B003EC33A /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D434B0B2AC5B00B003EC33A /* BottomSheetView.swift */; };
+		5D434B0E2AC5C13A003EC33A /* BottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D434B0D2AC5C139003EC33A /* BottomSheetViewModel.swift */; };
 		5D8932EA2AC42B2C0058D004 /* ExpensesChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8932E92AC42B2C0058D004 /* ExpensesChartViewController.swift */; };
 		5D8932EF2AC49B870058D004 /* ExpensesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8932EE2AC49B870058D004 /* ExpensesChartView.swift */; };
 		5D8932F12AC49E000058D004 /* ExpensesChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8932F02AC49E000058D004 /* ExpensesChartViewModel.swift */; };
@@ -36,6 +38,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5D434B0B2AC5B00B003EC33A /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		5D434B0D2AC5C139003EC33A /* BottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewModel.swift; sourceTree = "<group>"; };
 		5D8932E92AC42B2C0058D004 /* ExpensesChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesChartViewController.swift; sourceTree = "<group>"; };
 		5D8932EE2AC49B870058D004 /* ExpensesChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesChartView.swift; sourceTree = "<group>"; };
 		5D8932F02AC49E000058D004 /* ExpensesChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesChartViewModel.swift; sourceTree = "<group>"; };
@@ -187,7 +191,9 @@
 		5DC421742AC1BCE500652337 /* BottomSheet */ = {
 			isa = PBXGroup;
 			children = (
+				5D434B0D2AC5C139003EC33A /* BottomSheetViewModel.swift */,
 				5DC421782AC1BD6200652337 /* BottomSheetController.swift */,
+				5D434B0B2AC5B00B003EC33A /* BottomSheetView.swift */,
 			);
 			path = BottomSheet;
 			sourceTree = "<group>";
@@ -334,6 +340,7 @@
 				5DE0C3482AC2377A0070C50C /* Extension+UiTableViewCell.swift in Sources */,
 				5DC421842AC1EE0C00652337 /* IncomeViewModel.swift in Sources */,
 				5D8932F12AC49E000058D004 /* ExpensesChartViewModel.swift in Sources */,
+				5D434B0E2AC5C13A003EC33A /* BottomSheetViewModel.swift in Sources */,
 				5DE0C3462AC2349E0070C50C /* ExpensesCategoriesViewModel.swift in Sources */,
 				5DC421592AC1BBCB00652337 /* AppDelegate.swift in Sources */,
 				5DABE4792AC33CE800312A3C /* ExpensesDetailView.swift in Sources */,
@@ -341,6 +348,7 @@
 				5DC421772AC1BD2700652337 /* LocalDataStore.swift in Sources */,
 				5DABE47D2AC33E7100312A3C /* ExpensesDetailCell.swift in Sources */,
 				5D8932EA2AC42B2C0058D004 /* ExpensesChartViewController.swift in Sources */,
+				5D434B0C2AC5B00B003EC33A /* BottomSheetView.swift in Sources */,
 				5DE0C3422AC22DE40070C50C /* ExpensesCategoriesView.swift in Sources */,
 				5DC4215B2AC1BBCB00652337 /* SceneDelegate.swift in Sources */,
 				5DC421712AC1BC9E00652337 /* TabBar.swift in Sources */,

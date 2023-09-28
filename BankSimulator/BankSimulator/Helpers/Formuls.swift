@@ -23,7 +23,7 @@ class Formuls {
         if let formattedAmount = formatter.string(from: NSNumber(value: integer)) {
             return formattedAmount + " р"
         } else {
-            return ""
+            return String()
         }
     }
     
