@@ -10,7 +10,7 @@ import Charts
 
 class ExpensesChartView: UIView {
     
-    lazy var lineChartView: LineChartView = {
+     lazy var lineChartView: LineChartView = {
         let lineChartView = LineChartView()
         lineChartView.translatesAutoresizingMaskIntoConstraints = false
         return lineChartView
@@ -29,7 +29,7 @@ class ExpensesChartView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setupLineChartVisual() {
+    private func setupLineChartVisual() {
         lineChartView.xAxis.labelPosition = .bottom
         lineChartView.xAxis.labelFont = .systemFont(ofSize: 14, weight: .bold)
         
@@ -43,7 +43,7 @@ class ExpensesChartView: UIView {
         lineChartView.animate(xAxisDuration: 0.5, yAxisDuration: 0.5)
     }
     
-    func setConstraints() {
+    private func setConstraints() {
         lineChartView.snp.makeConstraints { make in
             make.top.equalToSuperview().offset(200)
             make.bottom.equalToSuperview().offset(-200)

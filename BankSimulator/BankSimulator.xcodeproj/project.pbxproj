@@ -19,7 +19,6 @@
 		5DC421592AC1BBCB00652337 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC421582AC1BBCB00652337 /* AppDelegate.swift */; };
 		5DC4215B2AC1BBCB00652337 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4215A2AC1BBCB00652337 /* SceneDelegate.swift */; };
 		5DC4215D2AC1BBCB00652337 /* IncomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4215C2AC1BBCB00652337 /* IncomeController.swift */; };
-		5DC421602AC1BBCB00652337 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DC4215E2AC1BBCB00652337 /* Main.storyboard */; };
 		5DC421632AC1BBCB00652337 /* BankSimulator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DC421612AC1BBCB00652337 /* BankSimulator.xcdatamodeld */; };
 		5DC421652AC1BBD200652337 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DC421642AC1BBD200652337 /* Assets.xcassets */; };
 		5DC421682AC1BBD200652337 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DC421662AC1BBD200652337 /* LaunchScreen.storyboard */; };
@@ -27,7 +26,7 @@
 		5DC421772AC1BD2700652337 /* LocalDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC421762AC1BD2700652337 /* LocalDataStore.swift */; };
 		5DC421792AC1BD6200652337 /* BottomSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC421782AC1BD6200652337 /* BottomSheetController.swift */; };
 		5DC4217B2AC1BDC400652337 /* ExpensesCategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4217A2AC1BDC400652337 /* ExpensesCategoriesController.swift */; };
-		5DC4217E2AC1BE2700652337 /* Expenses+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4217D2AC1BE2700652337 /* Expenses+UIColor.swift */; };
+		5DC4217E2AC1BE2700652337 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4217D2AC1BE2700652337 /* Extension+UIColor.swift */; };
 		5DC421802AC1C0BE00652337 /* IncomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4217F2AC1C0BE00652337 /* IncomeView.swift */; };
 		5DC421822AC1D12200652337 /* Formuls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC421812AC1D12200652337 /* Formuls.swift */; };
 		5DC421842AC1EE0C00652337 /* IncomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC421832AC1EE0C00652337 /* IncomeViewModel.swift */; };
@@ -52,7 +51,6 @@
 		5DC421582AC1BBCB00652337 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DC4215A2AC1BBCB00652337 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		5DC4215C2AC1BBCB00652337 /* IncomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeController.swift; sourceTree = "<group>"; };
-		5DC4215F2AC1BBCB00652337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5DC421622AC1BBCB00652337 /* BankSimulator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BankSimulator.xcdatamodel; sourceTree = "<group>"; };
 		5DC421642AC1BBD200652337 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DC421672AC1BBD200652337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,7 +59,7 @@
 		5DC421762AC1BD2700652337 /* LocalDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataStore.swift; sourceTree = "<group>"; };
 		5DC421782AC1BD6200652337 /* BottomSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetController.swift; sourceTree = "<group>"; };
 		5DC4217A2AC1BDC400652337 /* ExpensesCategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesCategoriesController.swift; sourceTree = "<group>"; };
-		5DC4217D2AC1BE2700652337 /* Expenses+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Expenses+UIColor.swift"; sourceTree = "<group>"; };
+		5DC4217D2AC1BE2700652337 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
 		5DC4217F2AC1C0BE00652337 /* IncomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeView.swift; sourceTree = "<group>"; };
 		5DC421812AC1D12200652337 /* Formuls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Formuls.swift; sourceTree = "<group>"; };
 		5DC421832AC1EE0C00652337 /* IncomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeViewModel.swift; sourceTree = "<group>"; };
@@ -103,12 +101,21 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		5D434B122AC604A7003EC33A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5DC4217D2AC1BE2700652337 /* Extension+UIColor.swift */,
+				5DE0C3472AC2377A0070C50C /* Extension+UiTableViewCell.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		5D8932E82AC42AD80058D004 /* ExpensesDetailChart */ = {
 			isa = PBXGroup;
 			children = (
+				5D8932F02AC49E000058D004 /* ExpensesChartViewModel.swift */,
 				5D8932E92AC42B2C0058D004 /* ExpensesChartViewController.swift */,
 				5D8932EE2AC49B870058D004 /* ExpensesChartView.swift */,
-				5D8932F02AC49E000058D004 /* ExpensesChartViewModel.swift */,
 			);
 			path = ExpensesDetailChart;
 			sourceTree = "<group>";
@@ -116,10 +123,12 @@
 		5DABE4772AC32DD000312A3C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				5DC421642AC1BBD200652337 /* Assets.xcassets */,
+				5DC421612AC1BBCB00652337 /* BankSimulator.xcdatamodeld */,
+				5DC421662AC1BBD200652337 /* LaunchScreen.storyboard */,
 				5DC421812AC1D12200652337 /* Formuls.swift */,
-				5DC4217D2AC1BE2700652337 /* Expenses+UIColor.swift */,
-				5DE0C3472AC2377A0070C50C /* Extension+UiTableViewCell.swift */,
 				5D434B0F2AC5FA62003EC33A /* Constants.swift */,
+				5D434B122AC604A7003EC33A /* Extensions */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -151,11 +160,7 @@
 				5DC421742AC1BCE500652337 /* BottomSheet */,
 				5DC421732AC1BCD300652337 /* ExpensesCategories */,
 				5DC421722AC1BCC400652337 /* Income */,
-				5DC4215E2AC1BBCB00652337 /* Main.storyboard */,
-				5DC421642AC1BBD200652337 /* Assets.xcassets */,
-				5DC421662AC1BBD200652337 /* LaunchScreen.storyboard */,
 				5DC421692AC1BBD200652337 /* Info.plist */,
-				5DC421612AC1BBCB00652337 /* BankSimulator.xcdatamodeld */,
 			);
 			path = BankSimulator;
 			sourceTree = "<group>";
@@ -283,7 +288,6 @@
 			files = (
 				5DC421682AC1BBD200652337 /* LaunchScreen.storyboard in Resources */,
 				5DC421652AC1BBD200652337 /* Assets.xcassets in Resources */,
-				5DC421602AC1BBCB00652337 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,7 +360,7 @@
 				5DE0C3422AC22DE40070C50C /* ExpensesCategoriesView.swift in Sources */,
 				5DC4215B2AC1BBCB00652337 /* SceneDelegate.swift in Sources */,
 				5DC421712AC1BC9E00652337 /* TabBar.swift in Sources */,
-				5DC4217E2AC1BE2700652337 /* Expenses+UIColor.swift in Sources */,
+				5DC4217E2AC1BE2700652337 /* Extension+UIColor.swift in Sources */,
 				5DABE47B2AC33D0400312A3C /* ExpensesDetailViewModel.swift in Sources */,
 				5DC421792AC1BD6200652337 /* BottomSheetController.swift in Sources */,
 				5DC4217B2AC1BDC400652337 /* ExpensesCategoriesController.swift in Sources */,
@@ -367,14 +371,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		5DC4215E2AC1BBCB00652337 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				5DC4215F2AC1BBCB00652337 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		5DC421662AC1BBD200652337 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -513,7 +509,6 @@
 				INFOPLIST_FILE = BankSimulator/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -542,7 +537,6 @@
 				INFOPLIST_FILE = BankSimulator/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (

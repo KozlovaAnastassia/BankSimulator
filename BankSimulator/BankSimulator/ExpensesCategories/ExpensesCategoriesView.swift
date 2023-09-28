@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol ExpensesCategoriesViewDelegate {
+protocol ExpensesCategoriesViewDelegate: AnyObject {
     func tapButtonAddExpenses()
     func getExpensesCategoryForCell(indexPath: IndexPath) -> String
     func getNumbersOfSection() -> Int
@@ -16,11 +16,11 @@ protocol ExpensesCategoriesViewDelegate {
 
 class ExpensesCategoriesView: UIView {
     
-    let expensesTableView = UITableView()
-    let identifireCell = "cellExpenses"
-    var delegate: ExpensesCategoriesViewDelegate?
+    weak var delegate: ExpensesCategoriesViewDelegate?
+    private let expensesTableView = UITableView()
+    private let identifireCell = "cellExpenses"
     
-    lazy var buttonAddExpense: UIButton = {
+    private lazy var buttonAddExpense: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(hexString: Constants.ColorsHex.mainBlue)
         button.setTitle(Constants.ButtonTitle.expensesCategory, for: .normal)
@@ -31,7 +31,6 @@ class ExpensesCategoriesView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
         backgroundColor = .white
         addSubview(buttonAddExpense)
         setTable()
@@ -46,7 +45,7 @@ class ExpensesCategoriesView: UIView {
         delegate?.tapButtonAddExpenses()
     }
     
-    func setConstraints() {
+    private func setConstraints() {
         buttonAddExpense.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.width.equalTo(344)
@@ -60,7 +59,7 @@ class ExpensesCategoriesView: UIView {
             make.bottom.equalToSuperview().offset(-170)
         }
     }
-    func setTable() {
+    private func setTable() {
         expensesTableView.register(UITableViewCell.self, forCellReuseIdentifier: identifireCell)
         expensesTableView.delegate = self
         expensesTableView.dataSource = self

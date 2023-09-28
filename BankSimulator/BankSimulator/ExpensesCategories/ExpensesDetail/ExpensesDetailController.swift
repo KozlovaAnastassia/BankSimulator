@@ -9,9 +9,9 @@ import UIKit
 import CoreData
 
 class ExpensesDetailController: UIViewController, ExpensesDetailViewDelegate {
-    let expensesDetailView = ExpensesDetailView()
-    var viewModel: ExpensesDetailViewModelProtocol
-    var itemID = String()
+    private let expensesDetailView = ExpensesDetailView()
+    private var viewModel: ExpensesDetailViewModelProtocol
+    private var itemID = String()
     
     init(viewModel: ExpensesDetailViewModelProtocol) {
         self.viewModel = viewModel
@@ -84,6 +84,6 @@ extension ExpensesDetailController: BottomSheetDelegate {
         { taskObject in
             viewModel.expensesDetailArray.append(taskObject as! ExpensesDetail)
         }
-        expensesDetailView.tableView.reloadData()
+        expensesDetailView.reloadTableView()
     }
 }

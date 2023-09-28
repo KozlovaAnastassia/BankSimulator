@@ -38,7 +38,7 @@ class IncomeController: UIViewController, IncomeViewDelegate {
         incomeView.delegate = self
     }
     
-    func getIncomeForCell(indexPath: IndexPath) -> String {
+     func getIncomeForCell(indexPath: IndexPath) -> String {
         viewModel.getIncomeForCell(indexPath: indexPath)
     }
     

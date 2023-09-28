@@ -9,25 +9,25 @@ import UIKit
 
 class ExpensesDetailCell: UITableViewCell {
     
-    lazy var labelCategory: UILabel = {
+    private lazy var labelCategory: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         return label
     }()
     
-    lazy var labelDate: UILabel = {
+    private lazy var labelDate: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         return label
     }()
     
-    lazy var labelExpense: UILabel = {
+    private lazy var labelExpense: UILabel = {
         let label = UILabel()
         label.textAlignment = .center
         return label
     }()
     
-    lazy var stackView: UIStackView = {
+    private lazy var stackView: UIStackView = {
         let stack = UIStackView()
         stack.alignment = .leading
         stack.axis = .horizontal

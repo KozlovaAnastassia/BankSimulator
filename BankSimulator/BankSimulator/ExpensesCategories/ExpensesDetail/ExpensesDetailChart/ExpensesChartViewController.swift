@@ -9,14 +9,17 @@ import UIKit
 
 class ExpensesChartViewController: UIViewController {
     
-    var itemId: String
-    var viewModel: ExpensesChartViewModelProtocol
-    let chartView = ExpensesChartView()
+    private var itemId: String
+    private var viewModel: ExpensesChartViewModelProtocol
+    private let chartView = ExpensesChartView()
+    
+    override func loadView() {
+        super.loadView()
+        view = chartView
+    }
 
     override func viewDidLoad() {
-          super.viewDidLoad()
-        
-        view = chartView
+        super.viewDidLoad()
         viewModel.getdataFromCoreData(id: itemId)
         viewModel.prepareForChart(lineChartView: chartView.lineChartView)
     }

@@ -9,8 +9,8 @@ import UIKit
 
 class ExpensesCategoriesController: UIViewController, ExpensesCategoriesViewDelegate {
     
-    let viewModel: ExpensesCategoriesViewModel
-    var expensesCategoriesView = ExpensesCategoriesView()
+    private let viewModel: ExpensesCategoriesViewModel
+    private var expensesCategoriesView = ExpensesCategoriesView()
     
     init(viewModel: ExpensesCategoriesViewModel) {
         self.viewModel = viewModel

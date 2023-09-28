@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol IncomeViewDelegate {
+protocol IncomeViewDelegate: AnyObject {
     func tapButtonAddIncome()
     func getIncomeForCell(indexPath: IndexPath) -> String
     func getNumbersOfSection() -> Int
@@ -15,12 +15,11 @@ protocol IncomeViewDelegate {
 }
 
 class IncomeView: UIView  {
-    
-    var tableView =  UITableView()
-    var cellIndetifire = "CellIncome"
-    var delegate: IncomeViewDelegate?
-    
-    lazy var buttonAddIncome: UIButton = {
+    weak var delegate: IncomeViewDelegate?
+    private var tableView =  UITableView()
+    private var cellIndetifire = "CellIncome"
+   
+    private lazy var buttonAddIncome: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(hexString: Constants.ColorsHex.mainBlue)
         button.setTitle(Constants.ButtonTitle.income, for: .normal)
@@ -30,7 +29,7 @@ class IncomeView: UIView  {
         return button
     }()
     
-    lazy var labelHeader: UILabel = {
+    private lazy var labelHeader: UILabel = {
         let label = UILabel()
         label.text = "Доходы"
         label.font = UIFont.systemFont(ofSize: 28, weight: .heavy)
@@ -38,14 +37,14 @@ class IncomeView: UIView  {
         return label
     }()
     
-    lazy var labelBalance: UILabel = {
+    private lazy var labelBalance: UILabel = {
         let label = UILabel()
         label.text = "Текущий баланс:"
         
         return label
     }()
     
-    lazy var currentBalance: UILabel = {
+    private lazy var currentBalance: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
         label.text = "0.00 P"
@@ -54,7 +53,7 @@ class IncomeView: UIView  {
         return label
     }()
     
-    lazy var stackViewHorisontal: UIStackView = {
+    private lazy var stackViewHorisontal: UIStackView = {
         let stack = UIStackView()
         stack.axis = .horizontal
         stack.alignment = .firstBaseline
@@ -65,7 +64,7 @@ class IncomeView: UIView  {
         return stack
     }()
     
-    lazy var stackViewVertical: UIStackView = {
+    private lazy var stackViewVertical: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
         stack.alignment = .center
@@ -92,19 +91,19 @@ class IncomeView: UIView  {
         delegate?.tapButtonAddIncome()
     }
     
-    func setTable() {
+    private func setTable() {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellIndetifire)
     }
 
-    func setViews() {
+    private func setViews() {
         addSubview(tableView)
         addSubview(buttonAddIncome)
         addSubview(stackViewVertical)
     }
     
-    func setConstraints() {
+    private func setConstraints() {
         buttonAddIncome.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.width.equalTo(344)

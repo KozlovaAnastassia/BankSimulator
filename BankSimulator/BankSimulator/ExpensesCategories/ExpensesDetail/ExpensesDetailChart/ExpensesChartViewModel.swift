@@ -20,8 +20,8 @@ class ExpensesChartViewModel: ExpensesChartViewModelProtocol {
     
     var dataStorage: LocalDataServiceProtocol
     var charArray = [ExpensesDetail]()
-    var expensesArray = [Int]()
-    var dateArray = [String]()
+    private var expensesArray = [Int]()
+    private var dateArray = [String]()
     
     init(dataStorage: LocalDataServiceProtocol) {
         self.dataStorage = dataStorage

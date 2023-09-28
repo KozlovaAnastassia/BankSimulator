@@ -15,11 +15,11 @@ protocol ExpensesDetailViewDelegate: AnyObject {
 }
 
 class ExpensesDetailView: UIView {
-    let tableView = UITableView()
-    let cellIndentifire = "ExpensesDetailCell"
+    private let tableView = UITableView()
+    private let cellIndentifire = "ExpensesDetailCell"
     weak var delegate: ExpensesDetailViewDelegate?
     
-    lazy var ButtonPaymentSchedule: UIButton = {
+    private lazy var ButtonPaymentSchedule: UIButton = {
         let button = UIButton()
         button.backgroundColor = UIColor(hexString: Constants.ColorsHex.mainBlue)
         button.setTitle("График платежей", for: .normal)
@@ -28,7 +28,7 @@ class ExpensesDetailView: UIView {
         return button
     }()
 
-    lazy var addExpensesButton: UIButton = {
+    private lazy var addExpensesButton: UIButton = {
     let button = UIButton()
     button.backgroundColor = UIColor(hexString: Constants.ColorsHex.mainBlue)
     button.setTitle("+", for: .normal)
@@ -37,7 +37,7 @@ class ExpensesDetailView: UIView {
         return button
     }()
 
-    lazy var labelExpenses: UILabel = {
+    private lazy var labelExpenses: UILabel = {
         let label = UILabel()
         label.text = Constants.ButtonTitle.expensesDetail
         label.font = UIFont.systemFont(ofSize: 22, weight: .heavy)
@@ -65,24 +65,20 @@ class ExpensesDetailView: UIView {
         delegate?.tapButtonPaymentSchedule()
     }
     
-    func addSubview() {
+    private func addSubview() {
         addSubview(tableView)
         addSubview(addExpensesButton)
         addSubview(labelExpenses)
         addSubview(ButtonPaymentSchedule)
     }
     
-    func setTable() {
+    private func setTable() {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(ExpensesDetailCell.self, forCellReuseIdentifier: cellIndentifire)
     }
-    
-    func reloadTableView() {
-        tableView.reloadData()
-    }
 
-    func setConstraints() {
+    private func setConstraints() {
         ButtonPaymentSchedule.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.width.equalTo(344)
@@ -106,6 +102,9 @@ class ExpensesDetailView: UIView {
             make.top.equalTo(170)
             make.bottom.equalTo(addExpensesButton.snp_topMargin)
         }
+    }
+    func reloadTableView() {
+        tableView.reloadData()
     }
 }
 
