@@ -21,7 +21,7 @@ class ExpensesDetailView: UIView {
     
     lazy var ButtonPaymentSchedule: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(hexString: "#007AFF")
+        button.backgroundColor = UIColor(hexString: Constants.ColorsHex.mainBlue)
         button.setTitle("График платежей", for: .normal)
         button.layer.cornerRadius = 24
         button.addTarget(self, action: #selector(tapButtonPaymentSchedule), for: .touchUpInside)
@@ -30,7 +30,7 @@ class ExpensesDetailView: UIView {
 
     lazy var addExpensesButton: UIButton = {
     let button = UIButton()
-    button.backgroundColor = UIColor(hexString: "#007AFF")
+    button.backgroundColor = UIColor(hexString: Constants.ColorsHex.mainBlue)
     button.setTitle("+", for: .normal)
     button.layer.cornerRadius = 35
     button.addTarget(self, action: #selector(tapButtonAddExpenses), for: .touchUpInside)
@@ -39,7 +39,7 @@ class ExpensesDetailView: UIView {
 
     lazy var labelExpenses: UILabel = {
         let label = UILabel()
-        label.text = "Добавить расход"
+        label.text = Constants.ButtonTitle.expensesDetail
         label.font = UIFont.systemFont(ofSize: 22, weight: .heavy)
         return label
     }()

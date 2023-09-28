@@ -52,7 +52,10 @@ class IncomeController: UIViewController, IncomeViewDelegate {
     }
     
     func tapButtonAddIncome() {
-        let viewModel = BottomSheetViewModel(moneyPlaceholder: "Сумма", categoryPlaceholder: nil, buttonAddTitle: "Добавить доход")
+        let viewModel = BottomSheetViewModel(moneyPlaceholder: Constants.PlaceholderTitle.money,
+                                             categoryPlaceholder: nil,
+                                             buttonAddTitle: Constants.ButtonTitle.income)
+        
         let vc = BottomSheetController(viewModel: viewModel)
         viewModel.delegate = self
         if let sheet = vc.sheetPresentationController{
@@ -70,10 +73,11 @@ extension IncomeController: BottomSheetDelegate {
         
         viewModel.dataStorage.saveDataToCoreData(
                                        withData: [String(moneyFormatted), String(newSum)],
-                                       entityName: "Income", key: ["income", "totalSum"])
-                                            {taskObject in
-                                                viewModel.incomeArray.append(taskObject as! Income)
-                                            }
+                                       entityName: Constants.EntityName.income,
+                                       key: ["income", "totalSum"])
+        { taskObject in
+            viewModel.incomeArray.append(taskObject as! Income)
+        }
         incomeView.sentData()
     }
 }

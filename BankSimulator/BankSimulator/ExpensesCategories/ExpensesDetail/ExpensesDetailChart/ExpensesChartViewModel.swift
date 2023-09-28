@@ -85,7 +85,10 @@ class ExpensesChartViewModel: ExpensesChartViewModelProtocol {
     }
     
     func getdataFromCoreData(id: String) {
-        if let expense =  dataStorage.fetchDataFromCoreData(entityName: "ExpensesDetail", predicateFormat: "id == %@", predicateValue: id){
+        if let expense =  dataStorage.fetchDataFromCoreData(entityName: Constants.EntityName.expensesDetail,
+                                                            predicateFormat: "id == %@",
+                                                            predicateValue: id)
+        {
             for i in expense {
                 charArray.append(i as! ExpensesDetail)
             }

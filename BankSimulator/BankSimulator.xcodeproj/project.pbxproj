@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5D434B0C2AC5B00B003EC33A /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D434B0B2AC5B00B003EC33A /* BottomSheetView.swift */; };
 		5D434B0E2AC5C13A003EC33A /* BottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D434B0D2AC5C139003EC33A /* BottomSheetViewModel.swift */; };
+		5D434B102AC5FA62003EC33A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D434B0F2AC5FA62003EC33A /* Constants.swift */; };
 		5D8932EA2AC42B2C0058D004 /* ExpensesChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8932E92AC42B2C0058D004 /* ExpensesChartViewController.swift */; };
 		5D8932EF2AC49B870058D004 /* ExpensesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8932EE2AC49B870058D004 /* ExpensesChartView.swift */; };
 		5D8932F12AC49E000058D004 /* ExpensesChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8932F02AC49E000058D004 /* ExpensesChartViewModel.swift */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		5D434B0B2AC5B00B003EC33A /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		5D434B0D2AC5C139003EC33A /* BottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewModel.swift; sourceTree = "<group>"; };
+		5D434B0F2AC5FA62003EC33A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		5D8932E92AC42B2C0058D004 /* ExpensesChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesChartViewController.swift; sourceTree = "<group>"; };
 		5D8932EE2AC49B870058D004 /* ExpensesChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesChartView.swift; sourceTree = "<group>"; };
 		5D8932F02AC49E000058D004 /* ExpensesChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesChartViewModel.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				5DC421812AC1D12200652337 /* Formuls.swift */,
 				5DC4217D2AC1BE2700652337 /* Expenses+UIColor.swift */,
 				5DE0C3472AC2377A0070C50C /* Extension+UiTableViewCell.swift */,
+				5D434B0F2AC5FA62003EC33A /* Constants.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -333,6 +336,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5D434B102AC5FA62003EC33A /* Constants.swift in Sources */,
 				5DC421822AC1D12200652337 /* Formuls.swift in Sources */,
 				5DC4215D2AC1BBCB00652337 /* IncomeController.swift in Sources */,
 				5DC421802AC1C0BE00652337 /* IncomeView.swift in Sources */,

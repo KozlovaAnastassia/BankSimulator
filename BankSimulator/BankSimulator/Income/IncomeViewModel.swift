@@ -30,7 +30,9 @@ class IncomeViewModell: IncomeViewModellProtocol {
     }
     
     func getDataFromCoreData() {
-        if let income = dataStorage.fetchDataFromCoreData(entityName: "Income", predicateFormat: nil, predicateValue: nil)  {
+        if let income = dataStorage.fetchDataFromCoreData(entityName: Constants.EntityName.income,
+                                                          predicateFormat: nil,
+                                                          predicateValue: nil)  {
            for i in income {
                incomeArray.append(i as! Income)
             }

@@ -33,7 +33,7 @@ class BottomSheetView: UIView {
 
     lazy var buttonAdd: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(hexString: "#007AFF")
+        button.backgroundColor = UIColor(hexString: Constants.ColorsHex.mainBlue)
         button.setTitleColor( UIColor.blue, for: .highlighted)
         button.layer.cornerRadius = 24
         button.addTarget(self, action: #selector(tapButtonAdd), for: .touchUpInside)

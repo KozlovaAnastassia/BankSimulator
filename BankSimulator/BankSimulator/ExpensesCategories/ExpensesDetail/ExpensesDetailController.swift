@@ -42,7 +42,10 @@ class ExpensesDetailController: UIViewController, ExpensesDetailViewDelegate {
     }
     
      func tapButtonAddExpenses() {
-         let viewModel = BottomSheetViewModel(moneyPlaceholder: "Сумма", categoryPlaceholder: "Наименование", buttonAddTitle: "Добавить расход")
+         let viewModel = BottomSheetViewModel(moneyPlaceholder: Constants.PlaceholderTitle.money,
+                                              categoryPlaceholder: Constants.PlaceholderTitle.category,
+                                              buttonAddTitle: Constants.ButtonTitle.expensesDetail)
+         
          let vc = BottomSheetController(viewModel: viewModel)
          viewModel.delegate = self
          
@@ -75,7 +78,10 @@ extension ExpensesDetailController: BottomSheetDelegate {
         let arrayValues = [category ?? String(), date, moneyFormatted, id]
         let arrayKey = ["category", "date", "money", "id"]
      
-        viewModel.dataStorage.saveDataToCoreData(withData: arrayValues, entityName: "ExpensesDetail", key: arrayKey) { taskObject in
+        viewModel.dataStorage.saveDataToCoreData(withData: arrayValues,
+                                                 entityName: Constants.EntityName.expensesDetail,
+                                                 key: arrayKey)
+        { taskObject in
             viewModel.expensesDetailArray.append(taskObject as! ExpensesDetail)
         }
         expensesDetailView.tableView.reloadData()

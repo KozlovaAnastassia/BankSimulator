@@ -22,8 +22,8 @@ class ExpensesCategoriesView: UIView {
     
     lazy var buttonAddExpense: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(hexString: "#007AFF")
-        button.setTitle("Добавить категорию расходов", for: .normal)
+        button.backgroundColor = UIColor(hexString: Constants.ColorsHex.mainBlue)
+        button.setTitle(Constants.ButtonTitle.expensesCategory, for: .normal)
         button.layer.cornerRadius = 24
         button.addTarget(self, action: #selector(tapButtonAddExpenses), for: .touchUpInside)
         return button
@@ -83,7 +83,7 @@ extension ExpensesCategoriesView: UITableViewDelegate, UITableViewDataSource {
         
         cell.textLabel?.text = delegate?.getExpensesCategoryForCell(indexPath: indexPath)
         cell.accessoryType = .disclosureIndicator
-        cell.addCustomDisclosureIndicator(with: UIColor(hexString: "#007AFF"))
+        cell.addCustomDisclosureIndicator(with: UIColor(hexString: Constants.ColorsHex.mainBlue))
         return cell
     }
     

@@ -20,7 +20,7 @@ protocol ExpensesCategoriesViewModelProtocol {
 
 class ExpensesCategoriesViewModel: ExpensesCategoriesViewModelProtocol {
     
-    private let initialArray = ["Дом", "Продукты", "Досуг", "Постоянные траты", "Путешествия"]
+    private let initialArray = Constants.ConstantArrays.initialExpensesCategory
     var expensesArray = [ExpensesCategories]()
     var result: (() -> Void)?
     var numberOfRowsInSection: Int {return self.expensesArray.count }
@@ -31,7 +31,7 @@ class ExpensesCategoriesViewModel: ExpensesCategoriesViewModelProtocol {
     }
     
     func getDataFromCoreData() {
-        if let expense =  dataStorage.fetchDataFromCoreData(entityName: "ExpensesCategories", predicateFormat: nil, predicateValue: nil) {
+        if let expense =  dataStorage.fetchDataFromCoreData(entityName: Constants.EntityName.expensesCategories, predicateFormat: nil, predicateValue: nil) {
             for i in expense {
                 expensesArray.append(i as! ExpensesCategories)
             }
@@ -43,11 +43,14 @@ class ExpensesCategoriesViewModel: ExpensesCategoriesViewModelProtocol {
     }
     
     func addInitialArray() {
-        if   dataStorage.coreDataEntityIsEmpty(entityName: "ExpensesCategories") {
+        if   dataStorage.coreDataEntityIsEmpty(entityName: Constants.EntityName.expensesCategories) {
             var id = 0
             for i in initialArray {
                 id += 1
-                dataStorage.saveDataToCoreData(withData: [i, String(id)], entityName: "ExpensesCategories", key: ["category", "id"]) { taskObject in
+                dataStorage.saveDataToCoreData(withData: [i, String(id)],
+                                               entityName: Constants.EntityName.expensesCategories,
+                                               key: ["category", "id"])
+                { taskObject in
                     expensesArray.append(taskObject as! ExpensesCategories)
                 }
             }
@@ -58,7 +61,6 @@ class ExpensesCategoriesViewModel: ExpensesCategoriesViewModelProtocol {
         let vc2 = ExpensesDetailController(viewModel: ExpensesDetailViewModel(dataStorage: LocalDataService()))
         let id = expensesArray[indexPath.row].id ?? String()
         vc2.getID(id: id)
-        
         return vc2
     }
 }

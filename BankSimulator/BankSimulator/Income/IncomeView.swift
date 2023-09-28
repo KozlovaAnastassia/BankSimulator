@@ -22,8 +22,8 @@ class IncomeView: UIView  {
     
     lazy var buttonAddIncome: UIButton = {
         let button = UIButton()
-        button.backgroundColor = UIColor(hexString: "#007AFF")
-        button.setTitle("Добавить доход", for: .normal)
+        button.backgroundColor = UIColor(hexString: Constants.ColorsHex.mainBlue)
+        button.setTitle(Constants.ButtonTitle.income, for: .normal)
         button.layer.cornerRadius = 24
         button.addTarget(self, action: #selector(TapButtonAddIncome), for: .touchUpInside)
         

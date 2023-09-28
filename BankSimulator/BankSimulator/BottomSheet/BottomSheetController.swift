@@ -23,7 +23,8 @@ class BottomSheetController: UIViewController, BottomSheetViewDelegate {
     
     override func loadView() {
         super.loadView()
-        bottomSheetView = BottomSheetView(state: viewModel.state, frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
+        bottomSheetView = BottomSheetView(state: viewModel.state,
+                                          frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
         view = bottomSheetView
     }
 
@@ -42,12 +43,12 @@ class BottomSheetController: UIViewController, BottomSheetViewDelegate {
     func transit() {
        switch viewModel.state {
        case .expensesDetail:
-           if let category = bottomSheetView?.textFieldCategory.text, let money = Int(bottomSheetView?.textFieldMoney.text ?? "") {
+           if let category = bottomSheetView?.textFieldCategory.text, let money = Int(bottomSheetView?.textFieldMoney.text ?? String()) {
                viewModel.transitData(category: category, money: money)
                self.dismiss(animated: true)
            }
        case .income:
-           if let money = Int(bottomSheetView?.textFieldMoney.text ?? "") {
+           if let money = Int(bottomSheetView?.textFieldMoney.text ?? String()) {
                viewModel.transitData(category: nil, money: money)
                self.dismiss(animated: true)
            }
