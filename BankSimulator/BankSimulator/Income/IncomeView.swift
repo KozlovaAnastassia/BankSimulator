@@ -126,7 +126,7 @@ class IncomeView: UIView  {
         }
     }
     
-    func sentData() {
+    func reloadTableView() {
         tableView.reloadData()
     }
 }

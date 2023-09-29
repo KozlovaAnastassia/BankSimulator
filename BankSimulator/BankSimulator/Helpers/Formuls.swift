@@ -38,4 +38,15 @@ class Formuls {
         let now = dateFormatter.string(from: date)
         return now
     }
+    
+    func stringToDate(_ dateString: String) -> Date? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd.MM.yy"
+        
+        if let date = dateFormatter.date(from: dateString) {
+            return date
+        } else {
+            return nil
+        }
+    }
 }

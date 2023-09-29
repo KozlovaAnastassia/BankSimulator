@@ -28,7 +28,7 @@ class IncomeController: UIViewController, IncomeViewDelegate {
         super.viewWillAppear(animated)
         viewModel.getDataFromCoreData()
         viewModel.result = {
-            self.incomeView.sentData()
+            self.incomeView.reloadTableView()
         }
     }
 
@@ -77,6 +77,6 @@ extension IncomeController: BottomSheetDelegate {
         { taskObject in
             viewModel.incomeArray.append(taskObject as! Income)
         }
-        incomeView.sentData()
+        incomeView.reloadTableView()
     }
 }

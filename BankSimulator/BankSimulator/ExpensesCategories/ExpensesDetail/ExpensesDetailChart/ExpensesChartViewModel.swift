@@ -90,9 +90,15 @@ class ExpensesChartViewModel: ExpensesChartViewModelProtocol {
                 valeue = (Int(i.money ?? String()) ?? Int())
             }
         }
-        for (k, v) in expensesDict {
+        let sortedArray = expensesDict.sorted {(Formuls.shared.stringToDate($0.key) ?? Date())  < (Formuls.shared.stringToDate($1.key) ?? Date()) }
+        
+        for (k, v) in sortedArray {
             dateArray.append(k)
             expensesArray.append(v)
+        }
+        
+        for i in dateArray {
+            print(i)
         }
         
         setupLineChartData(lineChartView, dataPoints: dateArray, values: expensesArray)
