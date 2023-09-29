@@ -24,7 +24,7 @@ class IncomeView: UIView  {
         button.backgroundColor = UIColor(hexString: Constants.ColorsHex.mainBlue)
         button.setTitle(Constants.ButtonTitle.income, for: .normal)
         button.layer.cornerRadius = 24
-        button.addTarget(self, action: #selector(TapButtonAddIncome), for: .touchUpInside)
+        button.addTarget(self, action: #selector(tapButtonAddIncome), for: .touchUpInside)
         
         return button
     }()
@@ -87,7 +87,7 @@ class IncomeView: UIView  {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func TapButtonAddIncome() {
+    @objc func tapButtonAddIncome() {
         delegate?.tapButtonAddIncome()
     }
     

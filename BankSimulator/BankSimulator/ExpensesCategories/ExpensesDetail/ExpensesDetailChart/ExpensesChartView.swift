@@ -15,18 +15,31 @@ class ExpensesChartView: UIView {
         lineChartView.translatesAutoresizingMaskIntoConstraints = false
         return lineChartView
     }()
+    
+    private lazy var labelChart: UILabel = {
+        let label = UILabel()
+        label.text = "График расходов"
+        label.font = UIFont.systemFont(ofSize: 28, weight: .heavy)
+        
+        return label
+    }()
 
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         backgroundColor = .white
-        addSubview(lineChartView)
+        addSubviews()
         setConstraints()
         setupLineChartVisual()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    private func addSubviews() {
+        addSubview(lineChartView)
+        addSubview(labelChart)
     }
     
     private func setupLineChartVisual() {
@@ -49,6 +62,11 @@ class ExpensesChartView: UIView {
             make.bottom.equalToSuperview().offset(-200)
             make.leading.equalToSuperview().offset(20)
             make.trailing.equalToSuperview().offset(-20)
+        }
+        labelChart.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(100)
+
         }
     }
 }

@@ -10,7 +10,7 @@ import Charts
 
 protocol ExpensesChartViewModelProtocol {
     var dataStorage: LocalDataServiceProtocol {get}
-    var charArray: [ExpensesDetail] {get set}
+    var chartArray: [ExpensesDetail] {get set}
     
     func getdataFromCoreData(id: String)
     func prepareForChart(lineChartView: LineChartView)
@@ -18,10 +18,11 @@ protocol ExpensesChartViewModelProtocol {
 
 class ExpensesChartViewModel: ExpensesChartViewModelProtocol {
     
+    
     var dataStorage: LocalDataServiceProtocol
-    var charArray = [ExpensesDetail]()
-    private var expensesArray = [Int]()
+    var chartArray = [ExpensesDetail]()
     private var dateArray = [String]()
+    private var expensesArray = [Int]()
     
     init(dataStorage: LocalDataServiceProtocol) {
         self.dataStorage = dataStorage
@@ -77,10 +78,23 @@ class ExpensesChartViewModel: ExpensesChartViewModelProtocol {
     }
     
     func prepareForChart(lineChartView: LineChartView) {
-        for i in charArray {
-            expensesArray.append(Int(i.money ?? String()) ?? Int())
-            dateArray.append(i.date ?? String())
+        var expensesDict = [String: Int]()
+        var valeue = 0
+        
+        for i in chartArray {
+            if expensesDict[i.date ?? String()] != nil {
+                valeue += (Int(i.money ?? String()) ?? Int())
+                expensesDict[i.date ?? String()] = valeue
+            } else {
+                expensesDict[i.date ?? String()] = (Int(i.money ?? String()) ?? Int())
+                valeue = (Int(i.money ?? String()) ?? Int())
+            }
         }
+        for (k, v) in expensesDict {
+            dateArray.append(k)
+            expensesArray.append(v)
+        }
+        
         setupLineChartData(lineChartView, dataPoints: dateArray, values: expensesArray)
     }
     
@@ -90,7 +104,7 @@ class ExpensesChartViewModel: ExpensesChartViewModelProtocol {
                                                             predicateValue: id)
         {
             for i in expense {
-                charArray.append(i as! ExpensesDetail)
+                chartArray.append(i as! ExpensesDetail)
             }
         }
     }

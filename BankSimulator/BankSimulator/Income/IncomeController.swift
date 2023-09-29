@@ -8,7 +8,6 @@
 import UIKit
 
 class IncomeController: UIViewController, IncomeViewDelegate {
-
     private let incomeView = IncomeView()
     private var viewModel: IncomeViewModellProtocol
     

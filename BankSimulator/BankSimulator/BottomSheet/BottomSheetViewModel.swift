@@ -19,10 +19,12 @@ protocol BottomSheetDelegate: AnyObject {
 }
 
 class BottomSheetViewModel {
+     var dataStorage = LocalDataService()
      var moneyPlaceholder: String?
      var categoryPlaceholder: String?
      var buttonAddTitle: String
      weak var delegate: BottomSheetDelegate?
+        
     
     var state: StateOfConstrains {
         if moneyPlaceholder != nil && categoryPlaceholder != nil {
