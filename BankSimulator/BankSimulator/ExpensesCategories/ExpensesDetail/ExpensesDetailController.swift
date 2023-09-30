@@ -27,15 +27,19 @@ class ExpensesDetailController: UIViewController, ExpensesDetailViewDelegate {
         view = expensesDetailView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+       
+        viewModel.result = {
+            self.expensesDetailView.reloadTableView()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         expensesDetailView.delegate = self
         viewModel.getDataFromCoreData(id: itemID)
-        
-        viewModel.result = { [weak self] in
-            self?.expensesDetailView.reloadTableView()
-        }
     }
     
      func tapButtonPaymentSchedule() {
@@ -76,7 +80,14 @@ class ExpensesDetailController: UIViewController, ExpensesDetailViewDelegate {
 extension ExpensesDetailController: BottomSheetDelegate {
     
     func transit(_ category: String?, _ money: Int?) {
-        viewModel.getDataFromBottomSheet(category: category, money: money)
+        let date = Formuls.shared.currentDateString()
+        let moneyFormatted = String(money ?? Int())
+        let id = itemID
+        
+        let arrayValues = [category ?? String(), date, id, moneyFormatted]
+        let arrayKey = ["category", "date",  "id", "money"]
+     
+        viewModel.getDataFromBottomSheet(arrayValues: arrayValues, arrayKey: arrayKey, moneyFormatted: moneyFormatted, money: money)
         expensesDetailView.reloadTableView()
     }
 }

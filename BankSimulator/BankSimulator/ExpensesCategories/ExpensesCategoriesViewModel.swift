@@ -70,6 +70,7 @@ class ExpensesCategoriesViewModel: ExpensesCategoriesViewModelProtocol {
     
     func getDataFromBottomSheet(category: String?, money: Int?) {
         let id = (Int(expensesArray.last?.id ?? String()) ?? Int()) + 1
+        
         dataStorage.saveDataToCoreData(withData: [category ?? String(), String(id)],
                                        entityName: Constants.EntityName.expensesCategories,
                                        key: ["category", "id"]) { taskObject in

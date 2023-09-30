@@ -18,7 +18,7 @@ protocol ExpensesDetailViewModelProtocol {
     func getExpensesForCell(indexPath: IndexPath) -> ExpensesDetail
     func getDataFromCoreData(id: String)
     func deleteRow(indexPath: IndexPath)
-    func getDataFromBottomSheet(category: String?, money: Int?)
+    func getDataFromBottomSheet(arrayValues: [String], arrayKey: [String], moneyFormatted: String, money: Int? )
 }
 
 class ExpensesDetailViewModel: ExpensesDetailViewModelProtocol {
@@ -55,23 +55,17 @@ class ExpensesDetailViewModel: ExpensesDetailViewModelProtocol {
         }
     }
     
-    func getDataFromBottomSheet(category: String?, money: Int?) {
-        let date = Formuls.shared.currentDateString()
-        let moneyFormatted = String(money ?? Int())
-        let id = itemID
-        
-        let arrayValues = [category ?? String(), date, moneyFormatted, id]
-        let arrayKey = ["category", "date", "money", "id"]
-     
+    func getDataFromBottomSheet(arrayValues: [String], arrayKey: [String], moneyFormatted: String, money: Int?  ) {
         dataStorage.saveDataToCoreData(withData: arrayValues,
-                                                 entityName: Constants.EntityName.expensesDetail,
-                                                 key: arrayKey)
+                                       entityName: Constants.EntityName.expensesDetail,
+                                       key: arrayKey)
         { taskObject in
             expensesDetailArray.append(taskObject as! ExpensesDetail)
         }
         
+        
         if dataStorage.coreDataEntityIsEmpty(entityName: Constants.EntityName.totalSum) {
-           dataStorage.saveDataToCoreData(
+            dataStorage.saveDataToCoreData(
                                            withData: [moneyFormatted],
                                            entityName: Constants.EntityName.totalSum,
                                            key: ["totalExpense"])
