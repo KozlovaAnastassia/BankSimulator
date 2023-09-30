@@ -55,9 +55,6 @@ enum Constants {
         static var initialExpensesCategory: [String] {
             ["Дом", "Продукты", "Досуг", "Постоянные траты", "Путешествия"]
         }
-        static var category: String {
-            "Наименование"
-        }
     }
     
 }

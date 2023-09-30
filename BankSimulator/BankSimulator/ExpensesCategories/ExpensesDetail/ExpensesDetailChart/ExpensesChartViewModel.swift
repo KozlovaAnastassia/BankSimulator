@@ -16,7 +16,7 @@ protocol ExpensesChartViewModelProtocol {
     func prepareForChart(lineChartView: LineChartView)
 }
 
-class ExpensesChartViewModel: ExpensesChartViewModelProtocol {
+final class ExpensesChartViewModel: ExpensesChartViewModelProtocol {
     
     var dataStorage: LocalDataServiceProtocol
     var chartArray = [ExpensesDetail]()
@@ -80,15 +80,15 @@ class ExpensesChartViewModel: ExpensesChartViewModelProtocol {
     
     func prepareForChart(lineChartView: LineChartView) {
         var expensesDict = [String: Int]()
-        var valeue = 0
+        var value = 0
         
         for i in chartArray {
             if expensesDict[i.date ?? String()] != nil {
-                valeue += (Int(i.money ?? String()) ?? Int())
-                expensesDict[i.date ?? String()] = valeue
+                value += (Int(i.money ?? String()) ?? Int())
+                expensesDict[i.date ?? String()] = value
             } else {
                 expensesDict[i.date ?? String()] = (Int(i.money ?? String()) ?? Int())
-                valeue = (Int(i.money ?? String()) ?? Int())
+                value = (Int(i.money ?? String()) ?? Int())
             }
         }
         let sortedArray = expensesDict.sorted {(Formuls.shared.stringToDate($0.key) ?? Date())  < (Formuls.shared.stringToDate($1.key) ?? Date()) }
@@ -98,9 +98,6 @@ class ExpensesChartViewModel: ExpensesChartViewModelProtocol {
             expensesArray.append(v)
         }
         
-        for i in dateArray {
-            print(i)
-        }
         
         setupLineChartData(lineChartView, dataPoints: dateArray, values: expensesArray)
     }
