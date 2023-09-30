@@ -5,6 +5,7 @@ https://github.com/KozlovaAnastassia/BankSimulator/assets/133094645/bc0ddaf2-f76
 
 ## About 
 Приложение для записи личных расходов и доходов
+
 Реализовано 5 экранов: 
 1)  экран доходов (Income)
 2)  экран категорий расходов  (ExpensesCategory) 
