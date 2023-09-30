@@ -9,8 +9,8 @@ https://github.com/KozlovaAnastassia/BankSimulator/assets/133094645/bc0ddaf2-f76
 Реализовано 5 экранов: 
 1)  экран доходов (Income)
 2)  экран категорий расходов  (ExpensesCategory) 
-3)  экран детализации расходов  (ExpenseDetail)
-4)  экран с графиком расходов по дням (ChartExpenses)
+3)  экран детализации расходов по каждой из категорий (ExpenseDetail)
+4)  экран с графиком расходов по каждой из категорий по дням (ChartExpenses)
 5)  экран записи расходов/ доходов (BottomSheet)
 
 
