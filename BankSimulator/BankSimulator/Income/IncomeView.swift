@@ -12,6 +12,7 @@ protocol IncomeViewDelegate: AnyObject {
     func getIncomeForCell(indexPath: IndexPath) -> String
     func getNumbersOfSection() -> Int
     func getTotalSum() -> String
+    func deleteRow(indexPath: IndexPath)
 }
 
 class IncomeView: UIView  {
@@ -44,10 +45,10 @@ class IncomeView: UIView  {
         return label
     }()
     
-    private lazy var currentBalance: UILabel = {
+     lazy var currentBalance: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
-        label.text = "0.00 P"
+        label.text = "0.00 р"
         label.numberOfLines = 2
         
         return label
@@ -149,5 +150,19 @@ extension IncomeView: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         64
+    }
+    
+    func deleteAction(forRowAt indexPath: IndexPath) -> UIContextualAction {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") { (action, view, completionHandler) in
+            self.delegate?.deleteRow(indexPath: indexPath)
+            self.reloadTableView()
+        }
+        return deleteAction
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = deleteAction(forRowAt: indexPath)
+        let swipeActions = UISwipeActionsConfiguration(actions: [delete])
+        return swipeActions
     }
 }

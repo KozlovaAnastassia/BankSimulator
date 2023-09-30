@@ -13,8 +13,10 @@ protocol LocalDataServiceProtocol {
     func getContext() -> NSManagedObjectContext
     func saveDataToCoreData(withData data: [String], entityName: String, key: [String], completion: (NSManagedObject) -> ())
     func fetchDataFromCoreData(entityName: String, predicateFormat: String?, predicateValue: String?) -> [NSManagedObject]?
+    func deleteAttributeValue(keyName: String, predicateValue: String, entityName: String)
     func coreDataEntityIsEmpty(entityName: String) -> Bool
     func deleteFromCoreData(entityName: String)
+    func updateAttributeValue(keyName: String, value: String, entityName: String)
 }
 
 class LocalDataService: LocalDataServiceProtocol {
@@ -72,6 +74,39 @@ class LocalDataService: LocalDataServiceProtocol {
         }
         do {
             try context.save()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func deleteAttributeValue(keyName: String, predicateValue: String, entityName: String) {
+        let context = getContext()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        fetchRequest.predicate = NSPredicate(format: "\(keyName) == %@", predicateValue)
+
+        do {
+            if let entities = try context.fetch(fetchRequest) as? [NSManagedObject] {
+                for entity in entities {
+                    context.delete(entity)
+                }
+                try context.save()
+            }
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    func updateAttributeValue(keyName: String, value: String, entityName: String) {
+        let context = getContext()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+      //  fetchRequest.predicate = NSPredicate(format: "\(keyName) == %@", predicateValue)
+
+        do {
+            if let entities = try context.fetch(fetchRequest) as? [NSManagedObject] {
+                for entity in entities {
+                    entity.setValue(value, forKey: keyName)
+                }
+                try context.save()
+            }
         } catch let error as NSError {
             print(error.localizedDescription)
         }

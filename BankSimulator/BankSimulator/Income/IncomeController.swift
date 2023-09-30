@@ -26,7 +26,7 @@ class IncomeController: UIViewController, IncomeViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        viewModel.getDataFromCoreData()
+       
         viewModel.result = {
             self.incomeView.reloadTableView()
         }
@@ -34,6 +34,7 @@ class IncomeController: UIViewController, IncomeViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.getDataFromCoreData()
         incomeView.delegate = self
     }
     
@@ -45,16 +46,22 @@ class IncomeController: UIViewController, IncomeViewDelegate {
         viewModel.numberOfRowsInSection
     }
     
+    func deleteRow(indexPath: IndexPath) {
+        viewModel.deleteRow(indexPath: indexPath)
+        
+        if self.viewModel.total[0].totalIncome == "0" {
+            self.incomeView.currentBalance.text = "0.00 p"
+        }
+    }
+ 
     func getTotalSum() -> String {
-        let totalSum = viewModel.incomeArray.last?.totalSum
-        return Formuls.shared.twoNumbersAfterPoint(integer: Int(totalSum ?? String()) ?? Int())
+        return viewModel.getTotalSum()
     }
     
     func tapButtonAddIncome() {
         let viewModel = BottomSheetViewModel(moneyPlaceholder: Constants.PlaceholderTitle.money,
                                              categoryPlaceholder: nil,
                                              buttonAddTitle: Constants.ButtonTitle.income)
-        
         let vc = BottomSheetController(viewModel: viewModel)
         viewModel.delegate = self
         if let sheet = vc.sheetPresentationController{
@@ -66,16 +73,33 @@ class IncomeController: UIViewController, IncomeViewDelegate {
 
 extension IncomeController: BottomSheetDelegate {
     func transit(_ category: String?, _ money: Int?) {
-        
-        let newSum = (Int(viewModel.incomeArray.last?.totalSum ?? String()) ?? Int()) + (money ?? Int())
         let moneyFormatted = Formuls.shared.twoNumbersAfterPoint(integer: money ?? Int())
         
         viewModel.dataStorage.saveDataToCoreData(
-                                       withData: [String(moneyFormatted), String(newSum)],
+                                       withData: [String(money ?? Int())],
                                        entityName: Constants.EntityName.income,
-                                       key: ["income", "totalSum"])
+                                       key: ["income"])
         { taskObject in
             viewModel.incomeArray.append(taskObject as! Income)
+        }
+        
+        if viewModel.total.isEmpty  {
+            viewModel.dataStorage.saveDataToCoreData(
+                                           withData: [moneyFormatted],
+                                           entityName: Constants.EntityName.totalSum,
+                                           key: ["totalIncome"])
+            { taskObject in
+                viewModel.total.append(taskObject as! TotalSum)
+                viewModel.total[0].totalIncome = String(money ?? Int())
+        
+            }
+        } else {
+            let newSum = (Int(viewModel.total[0].totalIncome ?? String()) ?? Int()) + (money ?? Int())
+            
+            viewModel.dataStorage.updateAttributeValue(
+                                                keyName: "totalIncome",
+                                                value: String(newSum),
+                                                entityName: Constants.EntityName.totalSum)
         }
         incomeView.reloadTableView()
     }

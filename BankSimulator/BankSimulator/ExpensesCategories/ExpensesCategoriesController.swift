@@ -67,6 +67,9 @@ class ExpensesCategoriesController: UIViewController, ExpensesCategoriesViewDele
         let vc2 = viewModel.pushToBottomSheetVC(indexPath)
         navigationController?.pushViewController(vc2, animated: true)
     }
+    func deleteRow(indexPath: IndexPath) {
+        viewModel.deleteRow(indexPath: indexPath)
+    }
 }
     
 extension ExpensesCategoriesController: BottomSheetDelegate {

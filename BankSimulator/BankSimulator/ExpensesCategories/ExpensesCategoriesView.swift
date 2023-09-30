@@ -12,6 +12,7 @@ protocol ExpensesCategoriesViewDelegate: AnyObject {
     func getExpensesCategoryForCell(indexPath: IndexPath) -> String
     func getNumbersOfSection() -> Int
     func pushToBottomSheetVC(indexPath: IndexPath)
+    func deleteRow(indexPath: IndexPath)
 }
 
 class ExpensesCategoriesView: UIView {
@@ -110,5 +111,19 @@ extension ExpensesCategoriesView: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 50
+    }
+    
+    func deleteAction(forRowAt indexPath: IndexPath) -> UIContextualAction {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") { (action, view, completionHandler) in
+            self.delegate?.deleteRow(indexPath: indexPath)
+            self.reloadTableView()
+        }
+        return deleteAction
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = deleteAction(forRowAt: indexPath)
+        let swipeActions = UISwipeActionsConfiguration(actions: [delete])
+        return swipeActions
     }
 }

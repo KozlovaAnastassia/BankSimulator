@@ -12,6 +12,7 @@ protocol ExpensesDetailViewDelegate: AnyObject {
     func getExpensesForCell(indexPath: IndexPath) -> ExpensesDetail
     func tapButtonAddExpenses()
     func tapButtonPaymentSchedule()
+    func deleteRow(indexPath: IndexPath)
 }
 
 class ExpensesDetailView: UIView {
@@ -121,4 +122,18 @@ extension ExpensesDetailView: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { 50 }
+    
+    func deleteAction(forRowAt indexPath: IndexPath) -> UIContextualAction {
+        let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") { (action, view, completionHandler) in
+            self.delegate?.deleteRow(indexPath: indexPath)
+            self.reloadTableView()
+        }
+        return deleteAction
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let delete = deleteAction(forRowAt: indexPath)
+        let swipeActions = UISwipeActionsConfiguration(actions: [delete])
+        return swipeActions
+    }
 }

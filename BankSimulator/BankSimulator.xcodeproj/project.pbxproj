@@ -23,7 +23,7 @@
 		5DC421652AC1BBD200652337 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DC421642AC1BBD200652337 /* Assets.xcassets */; };
 		5DC421682AC1BBD200652337 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DC421662AC1BBD200652337 /* LaunchScreen.storyboard */; };
 		5DC421712AC1BC9E00652337 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC421702AC1BC9E00652337 /* TabBar.swift */; };
-		5DC421772AC1BD2700652337 /* LocalDataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC421762AC1BD2700652337 /* LocalDataStore.swift */; };
+		5DC421772AC1BD2700652337 /* LocalDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC421762AC1BD2700652337 /* LocalDataService.swift */; };
 		5DC421792AC1BD6200652337 /* BottomSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC421782AC1BD6200652337 /* BottomSheetController.swift */; };
 		5DC4217B2AC1BDC400652337 /* ExpensesCategoriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4217A2AC1BDC400652337 /* ExpensesCategoriesController.swift */; };
 		5DC4217E2AC1BE2700652337 /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4217D2AC1BE2700652337 /* Extension+UIColor.swift */; };
@@ -56,7 +56,7 @@
 		5DC421672AC1BBD200652337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5DC421692AC1BBD200652337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DC421702AC1BC9E00652337 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
-		5DC421762AC1BD2700652337 /* LocalDataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataStore.swift; sourceTree = "<group>"; };
+		5DC421762AC1BD2700652337 /* LocalDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataService.swift; sourceTree = "<group>"; };
 		5DC421782AC1BD6200652337 /* BottomSheetController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetController.swift; sourceTree = "<group>"; };
 		5DC4217A2AC1BDC400652337 /* ExpensesCategoriesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesCategoriesController.swift; sourceTree = "<group>"; };
 		5DC4217D2AC1BE2700652337 /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
@@ -209,7 +209,7 @@
 		5DC421752AC1BD0900652337 /* DataService */ = {
 			isa = PBXGroup;
 			children = (
-				5DC421762AC1BD2700652337 /* LocalDataStore.swift */,
+				5DC421762AC1BD2700652337 /* LocalDataService.swift */,
 			);
 			path = DataService;
 			sourceTree = "<group>";
@@ -353,7 +353,7 @@
 				5DC421592AC1BBCB00652337 /* AppDelegate.swift in Sources */,
 				5DABE4792AC33CE800312A3C /* ExpensesDetailView.swift in Sources */,
 				5DC421632AC1BBCB00652337 /* BankSimulator.xcdatamodeld in Sources */,
-				5DC421772AC1BD2700652337 /* LocalDataStore.swift in Sources */,
+				5DC421772AC1BD2700652337 /* LocalDataService.swift in Sources */,
 				5DABE47D2AC33E7100312A3C /* ExpensesDetailCell.swift in Sources */,
 				5D8932EA2AC42B2C0058D004 /* ExpensesChartViewController.swift in Sources */,
 				5D434B0C2AC5B00B003EC33A /* BottomSheetView.swift in Sources */,

@@ -15,6 +15,7 @@ protocol ExpensesCategoriesViewModelProtocol {
 
     func getDataFromCoreData()
     func getExpensesCategoryForCell(indexPath: IndexPath) -> String
+    func deleteRow(indexPath: IndexPath) 
     func addInitialArray()
 }
 
@@ -62,5 +63,13 @@ class ExpensesCategoriesViewModel: ExpensesCategoriesViewModelProtocol {
         let id = expensesArray[indexPath.row].id ?? String()
         vc2.getID(id: id)
         return vc2
+    }
+    
+    func deleteRow(indexPath: IndexPath) {
+       let atribute = expensesArray.remove(at: indexPath.row)
+        
+        dataStorage.deleteAttributeValue(keyName: "category",
+                                         predicateValue: atribute.category ?? String(),
+                                         entityName: Constants.EntityName.expensesCategories)
     }
 }

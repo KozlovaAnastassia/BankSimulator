@@ -19,6 +19,9 @@ enum Constants {
         static var expensesDetail: String  {
             "ExpensesDetail"
         }
+        static var totalSum: String  {
+            "TotalSum"
+        }
     }
     
     enum ColorsHex {

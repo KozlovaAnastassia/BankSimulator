@@ -64,6 +64,7 @@ class ExpensesChartViewModel: ExpensesChartViewModelProtocol {
         dataSet.circleRadius = 5
         dataSet.form = .empty
         dataSet.label = ""
+        
     }
     
     private func setupLineChartData(_ lineChartView: LineChartView, dataPoints: [String], values: [Int]) {
@@ -72,6 +73,7 @@ class ExpensesChartViewModel: ExpensesChartViewModelProtocol {
         let dataEntries = getChartDataEntry(values: values, dateFormattedArray: dateFormattedArray)
         let data = setupLineChartData(dataEntries: dataEntries)
         
+        lineChartView.noDataText = "Нет данных для графика"
         lineChartView.data = data
         lineChartView.xAxis.setLabelCount(dateFormattedArray.count, force: true)
         lineChartView.xAxis.valueFormatter = IndexAxisValueFormatter(values: dateFormattedArray)

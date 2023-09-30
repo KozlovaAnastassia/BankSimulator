@@ -63,6 +63,10 @@ class ExpensesDetailController: UIViewController, ExpensesDetailViewDelegate {
         viewModel.numberOfRowsInSection
     }
     
+    func deleteRow(indexPath: IndexPath) {
+        viewModel.deleteRow(indexPath: indexPath)
+    }
+    
     func getExpensesForCell(indexPath: IndexPath) -> ExpensesDetail {
         viewModel.getExpensesForCell(indexPath: indexPath)
     }

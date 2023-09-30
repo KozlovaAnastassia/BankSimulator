@@ -15,6 +15,7 @@ protocol ExpensesDetailViewModelProtocol {
     
     func getExpensesForCell(indexPath: IndexPath) -> ExpensesDetail
     func getDataFromCoreData(id: String)
+    func deleteRow(indexPath: IndexPath)
 }
 
 class ExpensesDetailViewModel: ExpensesDetailViewModelProtocol {
@@ -39,5 +40,12 @@ class ExpensesDetailViewModel: ExpensesDetailViewModelProtocol {
                 expensesDetailArray.append(i as! ExpensesDetail)
             }
         }
+    }
+    func deleteRow(indexPath: IndexPath) {
+       let atribute = expensesDetailArray.remove(at: indexPath.row)
+        
+        dataStorage.deleteAttributeValue(keyName: "money",
+                                         predicateValue: atribute.money ?? String(),
+                                         entityName: Constants.EntityName.expensesDetail)
     }
 }

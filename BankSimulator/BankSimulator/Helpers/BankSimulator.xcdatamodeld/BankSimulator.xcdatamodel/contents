@@ -14,9 +14,14 @@
         <attribute name="income" optional="YES" attributeType="String"/>
         <attribute name="totalSum" optional="YES" attributeType="String"/>
     </entity>
+    <entity name="TotalSum" representedClassName="TotalSum" syncable="YES" codeGenerationType="class">
+        <attribute name="totalExpense" optional="YES" attributeType="String"/>
+        <attribute name="totalIncome" optional="YES" attributeType="String"/>
+    </entity>
     <elements>
         <element name="ExpensesCategories" positionX="-63" positionY="0" width="128" height="59"/>
         <element name="ExpensesDetail" positionX="-63" positionY="9" width="128" height="89"/>
         <element name="Income" positionX="-63" positionY="-18" width="128" height="59"/>
+        <element name="TotalSum" positionX="-63" positionY="27" width="128" height="59"/>
     </elements>
 </model>
