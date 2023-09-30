@@ -19,6 +19,7 @@ protocol IncomeViewModellProtocol {
     func getIncomeForCell(indexPath: IndexPath) -> String
     func getTotalSum() -> String
     func deleteRow(indexPath: IndexPath)
+    func getDataFromBottomSheet(category: String?, money: Int?)
 }
 
 class IncomeViewModell: IncomeViewModellProtocol {
@@ -51,6 +52,38 @@ class IncomeViewModell: IncomeViewModellProtocol {
         }
     }
     
+    func getDataFromBottomSheet(category: String?, money: Int?) {
+        let moneyFormatted = Formuls.shared.twoNumbersAfterPoint(integer: money ?? Int())
+        
+        dataStorage.saveDataToCoreData(
+                                       withData: [String(money ?? Int())],
+                                       entityName: Constants.EntityName.income,
+                                       key: ["income"])
+        { taskObject in
+            incomeArray.append(taskObject as! Income)
+        }
+        
+        if total.isEmpty  {
+            dataStorage.saveDataToCoreData(
+                                           withData: [moneyFormatted],
+                                           entityName: Constants.EntityName.totalSum,
+                                           key: ["totalIncome"])
+            { taskObject in
+                total.append(taskObject as! TotalSum)
+                total[0].totalIncome = String(money ?? Int())
+        
+            }
+        } else {
+            let newSum = (Int(total[0].totalIncome ?? String()) ?? Int()) + (money ?? Int())
+            
+            dataStorage.updateAttributeValue(
+                                                keyName: "totalIncome",
+                                                value: String(newSum),
+                                                entityName: Constants.EntityName.totalSum)
+        }
+    }
+    
+    
     func getIncomeForCell(indexPath: IndexPath) -> String {
         let income = incomeArray[indexPath.row]
         let formatedMoney = Formuls.shared.twoNumbersAfterPoint(integer: Int(income.income ?? String()) ?? Int())
@@ -72,7 +105,6 @@ class IncomeViewModell: IncomeViewModellProtocol {
         dataStorage.updateAttributeValue(keyName: "totalIncome",
                                          value: String(newTotalSum),
                                          entityName: Constants.EntityName.totalSum)
-      
     }
 }
 

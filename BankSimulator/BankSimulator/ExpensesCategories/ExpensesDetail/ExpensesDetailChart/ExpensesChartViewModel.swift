@@ -18,7 +18,6 @@ protocol ExpensesChartViewModelProtocol {
 
 class ExpensesChartViewModel: ExpensesChartViewModelProtocol {
     
-    
     var dataStorage: LocalDataServiceProtocol
     var chartArray = [ExpensesDetail]()
     private var dateArray = [String]()

@@ -31,7 +31,7 @@ class IncomeController: UIViewController, IncomeViewDelegate {
             self.incomeView.reloadTableView()
         }
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.getDataFromCoreData()
@@ -73,34 +73,7 @@ class IncomeController: UIViewController, IncomeViewDelegate {
 
 extension IncomeController: BottomSheetDelegate {
     func transit(_ category: String?, _ money: Int?) {
-        let moneyFormatted = Formuls.shared.twoNumbersAfterPoint(integer: money ?? Int())
-        
-        viewModel.dataStorage.saveDataToCoreData(
-                                       withData: [String(money ?? Int())],
-                                       entityName: Constants.EntityName.income,
-                                       key: ["income"])
-        { taskObject in
-            viewModel.incomeArray.append(taskObject as! Income)
-        }
-        
-        if viewModel.total.isEmpty  {
-            viewModel.dataStorage.saveDataToCoreData(
-                                           withData: [moneyFormatted],
-                                           entityName: Constants.EntityName.totalSum,
-                                           key: ["totalIncome"])
-            { taskObject in
-                viewModel.total.append(taskObject as! TotalSum)
-                viewModel.total[0].totalIncome = String(money ?? Int())
-        
-            }
-        } else {
-            let newSum = (Int(viewModel.total[0].totalIncome ?? String()) ?? Int()) + (money ?? Int())
-            
-            viewModel.dataStorage.updateAttributeValue(
-                                                keyName: "totalIncome",
-                                                value: String(newSum),
-                                                entityName: Constants.EntityName.totalSum)
-        }
+        viewModel.getDataFromBottomSheet(category: category, money: money)
         incomeView.reloadTableView()
     }
 }

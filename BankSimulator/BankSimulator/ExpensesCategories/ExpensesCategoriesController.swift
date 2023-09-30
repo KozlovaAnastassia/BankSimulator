@@ -43,12 +43,12 @@ class ExpensesCategoriesController: UIViewController, ExpensesCategoriesViewDele
     }
   
     func tapButtonAddExpenses() {
-        let viewModel = BottomSheetViewModel(moneyPlaceholder: nil,
+        let bottomSheetViewModel = BottomSheetViewModel(moneyPlaceholder: nil,
                                              categoryPlaceholder: Constants.PlaceholderTitle.category,
                                              buttonAddTitle: Constants.ButtonTitle.expensesCategory)
-        let vc = BottomSheetController(viewModel: viewModel)
-        viewModel.delegate = self
+        let vc = BottomSheetController(viewModel: bottomSheetViewModel)
         
+        bottomSheetViewModel.delegate = self
         if let sheet = vc.sheetPresentationController{
             sheet.detents = [.medium()]
         }
@@ -74,11 +74,7 @@ class ExpensesCategoriesController: UIViewController, ExpensesCategoriesViewDele
     
 extension ExpensesCategoriesController: BottomSheetDelegate {
     func transit(_ category: String?, _ money: Int?) {
-
-        let id = (Int(viewModel.expensesArray.last?.id ?? String()) ?? Int()) + 1
-        viewModel.dataStorage.saveDataToCoreData(withData: [category ?? String(), String(id)], entityName: Constants.EntityName.expensesCategories, key: ["category", "id"]) { taskObject in
-            viewModel.expensesArray.append(taskObject as! ExpensesCategories)
-        }
+        viewModel.getDataFromBottomSheet(category: category, money: money)
         self.expensesCategoriesView.reloadTableView()
     }
 }

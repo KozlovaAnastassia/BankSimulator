@@ -17,6 +17,7 @@ protocol ExpensesCategoriesViewModelProtocol {
     func getExpensesCategoryForCell(indexPath: IndexPath) -> String
     func deleteRow(indexPath: IndexPath) 
     func addInitialArray()
+    func getDataFromBottomSheet(category: String?, money: Int?)
 }
 
 class ExpensesCategoriesViewModel: ExpensesCategoriesViewModelProtocol {
@@ -63,6 +64,13 @@ class ExpensesCategoriesViewModel: ExpensesCategoriesViewModelProtocol {
         let id = expensesArray[indexPath.row].id ?? String()
         vc2.getID(id: id)
         return vc2
+    }
+    
+    func getDataFromBottomSheet(category: String?, money: Int?) {
+        let id = (Int(expensesArray.last?.id ?? String()) ?? Int()) + 1
+        dataStorage.saveDataToCoreData(withData: [category ?? String(), String(id)], entityName: Constants.EntityName.expensesCategories, key: ["category", "id"]) { taskObject in
+            expensesArray.append(taskObject as! ExpensesCategories)
+        }
     }
     
     func deleteRow(indexPath: IndexPath) {

@@ -110,6 +110,15 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		5D5EEA2A2AC84DDE00A3D02D /* Others */ = {
+			isa = PBXGroup;
+			children = (
+				5DC421642AC1BBD200652337 /* Assets.xcassets */,
+				5DC421662AC1BBD200652337 /* LaunchScreen.storyboard */,
+			);
+			path = Others;
+			sourceTree = "<group>";
+		};
 		5D8932E82AC42AD80058D004 /* ExpensesDetailChart */ = {
 			isa = PBXGroup;
 			children = (
@@ -123,9 +132,7 @@
 		5DABE4772AC32DD000312A3C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				5DC421642AC1BBD200652337 /* Assets.xcassets */,
 				5DC421612AC1BBCB00652337 /* BankSimulator.xcdatamodeld */,
-				5DC421662AC1BBD200652337 /* LaunchScreen.storyboard */,
 				5DC421812AC1D12200652337 /* Formuls.swift */,
 				5D434B0F2AC5FA62003EC33A /* Constants.swift */,
 				5D434B122AC604A7003EC33A /* Extensions */,
@@ -161,6 +168,7 @@
 				5DC421732AC1BCD300652337 /* ExpensesCategories */,
 				5DC421722AC1BCC400652337 /* Income */,
 				5DC421692AC1BBD200652337 /* Info.plist */,
+				5D5EEA2A2AC84DDE00A3D02D /* Others */,
 			);
 			path = BankSimulator;
 			sourceTree = "<group>";

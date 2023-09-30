@@ -72,7 +72,6 @@ class ExpensesCategoriesView: UIView {
     }
 }
 
-
 extension ExpensesCategoriesView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

@@ -75,19 +75,7 @@ class ExpensesDetailController: UIViewController, ExpensesDetailViewDelegate {
 extension ExpensesDetailController: BottomSheetDelegate {
     
     func transit(_ category: String?, _ money: Int?) {
-        let date = Formuls.shared.currentDateString()
-        let moneyFormatted = String(money ?? Int())
-        let id = itemID
-        
-        let arrayValues = [category ?? String(), date, moneyFormatted, id]
-        let arrayKey = ["category", "date", "money", "id"]
-     
-        viewModel.dataStorage.saveDataToCoreData(withData: arrayValues,
-                                                 entityName: Constants.EntityName.expensesDetail,
-                                                 key: arrayKey)
-        { taskObject in
-            viewModel.expensesDetailArray.append(taskObject as! ExpensesDetail)
-        }
+        viewModel.getDataFromBottomSheet(category: category, money: money)
         expensesDetailView.reloadTableView()
     }
 }
