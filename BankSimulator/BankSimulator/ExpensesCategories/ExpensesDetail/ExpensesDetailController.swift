@@ -32,8 +32,9 @@ class ExpensesDetailController: UIViewController, ExpensesDetailViewDelegate {
         
         expensesDetailView.delegate = self
         viewModel.getDataFromCoreData(id: itemID)
-        viewModel.result = {
-            self.expensesDetailView.reloadTableView()
+        
+        viewModel.result = { [weak self] in
+            self?.expensesDetailView.reloadTableView()
         }
     }
     

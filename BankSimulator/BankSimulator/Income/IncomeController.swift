@@ -27,8 +27,8 @@ class IncomeController: UIViewController, IncomeViewDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
        
-        viewModel.result = {
-            self.incomeView.reloadTableView()
+        viewModel.result = { [weak self] in
+            self?.incomeView.reloadTableView()
         }
     }
     

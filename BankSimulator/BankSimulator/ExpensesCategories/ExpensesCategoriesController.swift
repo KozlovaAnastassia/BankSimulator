@@ -30,8 +30,8 @@ class ExpensesCategoriesController: UIViewController, ExpensesCategoriesViewDele
         super.viewWillAppear(animated)
         
         viewModel.addInitialArray()
-        viewModel.result = {
-            self.expensesCategoriesView.reloadTableView()
+        viewModel.result = { [weak self] in
+            self?.expensesCategoriesView.reloadTableView()
         }
     }
     
