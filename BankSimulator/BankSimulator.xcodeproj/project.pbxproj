@@ -10,6 +10,7 @@
 		5D434B0C2AC5B00B003EC33A /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D434B0B2AC5B00B003EC33A /* BottomSheetView.swift */; };
 		5D434B0E2AC5C13A003EC33A /* BottomSheetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D434B0D2AC5C139003EC33A /* BottomSheetViewModel.swift */; };
 		5D434B102AC5FA62003EC33A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D434B0F2AC5FA62003EC33A /* Constants.swift */; };
+		5D5EEA272AC83FD400A3D02D /* IncomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D5EEA262AC83FD400A3D02D /* IncomeController.swift */; };
 		5D8932EA2AC42B2C0058D004 /* ExpensesChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8932E92AC42B2C0058D004 /* ExpensesChartViewController.swift */; };
 		5D8932EF2AC49B870058D004 /* ExpensesChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8932EE2AC49B870058D004 /* ExpensesChartView.swift */; };
 		5D8932F12AC49E000058D004 /* ExpensesChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5D8932F02AC49E000058D004 /* ExpensesChartViewModel.swift */; };
@@ -18,7 +19,6 @@
 		5DABE47D2AC33E7100312A3C /* ExpensesDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DABE47C2AC33E7100312A3C /* ExpensesDetailCell.swift */; };
 		5DC421592AC1BBCB00652337 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC421582AC1BBCB00652337 /* AppDelegate.swift */; };
 		5DC4215B2AC1BBCB00652337 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4215A2AC1BBCB00652337 /* SceneDelegate.swift */; };
-		5DC4215D2AC1BBCB00652337 /* IncomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DC4215C2AC1BBCB00652337 /* IncomeController.swift */; };
 		5DC421632AC1BBCB00652337 /* BankSimulator.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5DC421612AC1BBCB00652337 /* BankSimulator.xcdatamodeld */; };
 		5DC421652AC1BBD200652337 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DC421642AC1BBD200652337 /* Assets.xcassets */; };
 		5DC421682AC1BBD200652337 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5DC421662AC1BBD200652337 /* LaunchScreen.storyboard */; };
@@ -41,6 +41,7 @@
 		5D434B0B2AC5B00B003EC33A /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		5D434B0D2AC5C139003EC33A /* BottomSheetViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewModel.swift; sourceTree = "<group>"; };
 		5D434B0F2AC5FA62003EC33A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		5D5EEA262AC83FD400A3D02D /* IncomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IncomeController.swift; path = ../../../../IncomeController.swift; sourceTree = "<group>"; };
 		5D8932E92AC42B2C0058D004 /* ExpensesChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesChartViewController.swift; sourceTree = "<group>"; };
 		5D8932EE2AC49B870058D004 /* ExpensesChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesChartView.swift; sourceTree = "<group>"; };
 		5D8932F02AC49E000058D004 /* ExpensesChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesChartViewModel.swift; sourceTree = "<group>"; };
@@ -50,7 +51,6 @@
 		5DC421552AC1BBCB00652337 /* BankSimulator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BankSimulator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DC421582AC1BBCB00652337 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5DC4215A2AC1BBCB00652337 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5DC4215C2AC1BBCB00652337 /* IncomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeController.swift; sourceTree = "<group>"; };
 		5DC421622AC1BBCB00652337 /* BankSimulator.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BankSimulator.xcdatamodel; sourceTree = "<group>"; };
 		5DC421642AC1BBD200652337 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5DC421672AC1BBD200652337 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -179,7 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				5DC421832AC1EE0C00652337 /* IncomeViewModel.swift */,
-				5DC4215C2AC1BBCB00652337 /* IncomeController.swift */,
+				5D5EEA262AC83FD400A3D02D /* IncomeController.swift */,
 				5DC4217F2AC1C0BE00652337 /* IncomeView.swift */,
 			);
 			path = Income;
@@ -342,7 +342,6 @@
 			files = (
 				5D434B102AC5FA62003EC33A /* Constants.swift in Sources */,
 				5DC421822AC1D12200652337 /* Formuls.swift in Sources */,
-				5DC4215D2AC1BBCB00652337 /* IncomeController.swift in Sources */,
 				5DC421802AC1C0BE00652337 /* IncomeView.swift in Sources */,
 				5D8932EF2AC49B870058D004 /* ExpensesChartView.swift in Sources */,
 				5DE0C3482AC2377A0070C50C /* Extension+UiTableViewCell.swift in Sources */,
@@ -360,6 +359,7 @@
 				5DE0C3422AC22DE40070C50C /* ExpensesCategoriesView.swift in Sources */,
 				5DC4215B2AC1BBCB00652337 /* SceneDelegate.swift in Sources */,
 				5DC421712AC1BC9E00652337 /* TabBar.swift in Sources */,
+				5D5EEA272AC83FD400A3D02D /* IncomeController.swift in Sources */,
 				5DC4217E2AC1BE2700652337 /* Extension+UIColor.swift in Sources */,
 				5DABE47B2AC33D0400312A3C /* ExpensesDetailViewModel.swift in Sources */,
 				5DC421792AC1BD6200652337 /* BottomSheetController.swift in Sources */,
