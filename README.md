@@ -13,6 +13,7 @@ https://github.com/KozlovaAnastassia/BankSimulator/assets/133094645/bc0ddaf2-f76
 4)  экран с графиком расходов по дням (ChartExpenses)
 5)  экран записи расходов/ доходов (BottomSheet)
 
+
 Для всех экранов с TableView реализовано удаление ячеек 
 
 ## Реализация/ Stack
