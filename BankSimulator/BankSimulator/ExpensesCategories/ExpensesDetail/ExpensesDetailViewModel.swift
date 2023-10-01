@@ -9,24 +9,20 @@
 import UIKit
 
 protocol ExpensesDetailViewModelProtocol {
-    var expensesDetailArray: [ExpensesDetail] {get set}
     var result: (() -> Void)? {get set}
     var numberOfRowsInSection: Int {get}
-    var dataStorage: LocalDataServiceProtocol {get set}
-    var totalExpenses: [TotalSum] {get set}
     
     func getExpensesForCell(indexPath: IndexPath) -> ExpensesDetail
     func getDataFromCoreData(id: String)
     func deleteRow(indexPath: IndexPath)
-    func getDataFromBottomSheet(arrayValues: [String], arrayKey: [String], moneyFormatted: String, money: Int? )
+    func getDataFromBottomSheet(category: String, money: Int, id: String)
 }
 
 class ExpensesDetailViewModel: ExpensesDetailViewModelProtocol {
     
-    var expensesDetailArray = [ExpensesDetail]()
-    var totalExpenses = [TotalSum]()
-    var dataStorage: LocalDataServiceProtocol
-    var itemID = String()
+    private var expensesDetailArray = [ExpensesDetail]()
+    private var totalExpenses = [TotalSum]()
+    private var dataStorage: LocalDataServiceProtocol
     var result: (() -> Void)?
     var numberOfRowsInSection: Int {return self.expensesDetailArray.count }
     
@@ -55,7 +51,14 @@ class ExpensesDetailViewModel: ExpensesDetailViewModelProtocol {
         }
     }
     
-    func getDataFromBottomSheet(arrayValues: [String], arrayKey: [String], moneyFormatted: String, money: Int?  ) {
+    func getDataFromBottomSheet(category: String, money: Int, id: String) {
+        
+        let date = Formuls.shared.currentDateString()
+        let moneyFormatted = String(money)
+        
+        let arrayValues = [category , date, id, moneyFormatted]
+        let arrayKey = ["category", "date",  "id", "money"]
+        
         dataStorage.saveDataToCoreData(withData: arrayValues,
                                        entityName: Constants.EntityName.expensesDetail,
                                        key: arrayKey)
@@ -73,7 +76,7 @@ class ExpensesDetailViewModel: ExpensesDetailViewModelProtocol {
             totalExpenses.append(taskObject as! TotalSum)
         }
         } else {
-            let newSum = (Int(totalExpenses[0].totalExpense ?? String()) ?? Int()) + (money ?? Int())
+            let newSum = (Int(totalExpenses[0].totalExpense ?? String()) ?? Int()) + (money )
             dataStorage.updateAttributeValue(
                                                 keyName: "totalExpense",
                                                 value: String(newSum),
