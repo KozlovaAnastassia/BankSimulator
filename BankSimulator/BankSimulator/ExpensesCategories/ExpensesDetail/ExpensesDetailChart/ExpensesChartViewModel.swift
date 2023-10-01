@@ -63,7 +63,6 @@ final class ExpensesChartViewModel: ExpensesChartViewModelProtocol {
         dataSet.circleRadius = 5
         dataSet.form = .empty
         dataSet.label = ""
-        
     }
     
     private func setupLineChartData(_ lineChartView: LineChartView, dataPoints: [String], values: [Int]) {
@@ -97,8 +96,6 @@ final class ExpensesChartViewModel: ExpensesChartViewModelProtocol {
             dateArray.append(k)
             expensesArray.append(v)
         }
-        
-        
         setupLineChartData(lineChartView, dataPoints: dateArray, values: expensesArray)
     }
     

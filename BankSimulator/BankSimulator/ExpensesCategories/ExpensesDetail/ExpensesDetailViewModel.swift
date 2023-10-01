@@ -21,7 +21,6 @@ protocol ExpensesDetailViewModelProtocol {
 class ExpensesDetailViewModel: ExpensesDetailViewModelProtocol {
     
     private var expensesDetailArray = [ExpensesDetail]()
-    private var totalExpenses = [TotalSum]()
     private var dataStorage: LocalDataServiceProtocol
     var result: (() -> Void)?
     var numberOfRowsInSection: Int {return self.expensesDetailArray.count }
@@ -42,13 +41,6 @@ class ExpensesDetailViewModel: ExpensesDetailViewModelProtocol {
                 expensesDetailArray.append(i as! ExpensesDetail)
             }
         }
-        if let sum = dataStorage.fetchDataFromCoreData(entityName: Constants.EntityName.totalSum,
-                                                          predicateFormat: nil,
-                                                          predicateValue: nil)  {
-            for i in sum {
-                totalExpenses.append(i as! TotalSum)
-            }
-        }
     }
     
     func getDataFromBottomSheet(category: String, money: Int, id: String) {
@@ -65,35 +57,13 @@ class ExpensesDetailViewModel: ExpensesDetailViewModelProtocol {
         { taskObject in
             expensesDetailArray.append(taskObject as! ExpensesDetail)
         }
-        
-        
-        if dataStorage.coreDataEntityIsEmpty(entityName: Constants.EntityName.totalSum) {
-            dataStorage.saveDataToCoreData(
-                                           withData: [moneyFormatted],
-                                           entityName: Constants.EntityName.totalSum,
-                                           key: ["totalExpense"])
-        { taskObject in
-            totalExpenses.append(taskObject as! TotalSum)
-        }
-        } else {
-            let newSum = (Int(totalExpenses[0].totalExpense ?? String()) ?? Int()) + (money )
-            dataStorage.updateAttributeValue(
-                                                keyName: "totalExpense",
-                                                value: String(newSum),
-                                                entityName: Constants.EntityName.totalSum)
-        }
     }
     
     func deleteRow(indexPath: IndexPath) {
         let atribute = expensesDetailArray.remove(at: indexPath.row)
-        let newTotalSum = (Int(totalExpenses[0].totalExpense ??  String()) ?? Int()) - (Int(atribute.category ?? String()) ?? Int())
         
         dataStorage.deleteAttributeValue(keyName: "money",
                                          predicateValue: atribute.money ?? String(),
                                          entityName: Constants.EntityName.expensesDetail)
-        
-        dataStorage.updateAttributeValue(keyName: "totalExpense",
-                                         value: String(newTotalSum),
-                                         entityName: Constants.EntityName.totalSum)
     }
 }
