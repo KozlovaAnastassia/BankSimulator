@@ -30,7 +30,7 @@ class IncomeView: UIView  {
         return button
     }()
     
-    private lazy var labelHeader: UILabel = {
+    private var labelHeader: UILabel = {
         let label = UILabel()
         label.text = "Доходы"
         label.font = UIFont.systemFont(ofSize: 28, weight: .heavy)
@@ -38,14 +38,14 @@ class IncomeView: UIView  {
         return label
     }()
     
-    private lazy var labelBalance: UILabel = {
+    private var labelBalance: UILabel = {
         let label = UILabel()
         label.text = "Текущий баланс:"
         
         return label
     }()
     
-     lazy var currentBalance: UILabel = {
+    var currentBalance: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 24, weight: .heavy)
         label.text = "0.00 р"
@@ -107,8 +107,9 @@ class IncomeView: UIView  {
     private func setConstraints() {
         buttonAddIncome.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.width.equalTo(344)
             make.height.equalTo(48)
+            make.leading.equalTo(20)
+            make.trailing.equalTo(-20)
             make.bottom.equalToSuperview().offset(-120)
             
         }

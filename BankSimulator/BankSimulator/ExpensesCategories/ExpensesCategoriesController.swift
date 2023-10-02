@@ -30,14 +30,15 @@ class ExpensesCategoriesController: UIViewController, ExpensesCategoriesViewDele
         super.viewWillAppear(animated)
         
         viewModel.addInitialArray()
-        viewModel.result = { [weak self] in
-            self?.expensesCategoriesView.reloadTableView()
-        }
+      
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.result = { [weak self] in
+            self?.expensesCategoriesView.reloadTableView()
+        }
         viewModel.getDataFromCoreData()
         expensesCategoriesView.delegate = self
     }

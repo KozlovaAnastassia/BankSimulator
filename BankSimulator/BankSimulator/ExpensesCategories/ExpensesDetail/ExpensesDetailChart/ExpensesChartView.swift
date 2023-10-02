@@ -12,7 +12,6 @@ class ExpensesChartView: UIView {
     
      lazy var lineChartView: LineChartView = {
         let lineChartView = LineChartView()
-        lineChartView.translatesAutoresizingMaskIntoConstraints = false
         return lineChartView
     }()
     

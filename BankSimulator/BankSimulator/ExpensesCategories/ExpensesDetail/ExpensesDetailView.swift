@@ -30,15 +30,15 @@ class ExpensesDetailView: UIView {
     }()
 
     private lazy var addExpensesButton: UIButton = {
-    let button = UIButton()
-    button.backgroundColor = UIColor(hexString: Constants.ColorsHex.mainBlue)
-    button.setTitle("+", for: .normal)
-    button.layer.cornerRadius = 35
-    button.addTarget(self, action: #selector(tapButtonAddExpenses), for: .touchUpInside)
+        let button = UIButton()
+        button.backgroundColor = UIColor(hexString: Constants.ColorsHex.mainBlue)
+        button.setTitle("+", for: .normal)
+        button.layer.cornerRadius = 35
+        button.addTarget(self, action: #selector(tapButtonAddExpenses), for: .touchUpInside)
         return button
     }()
 
-    private lazy var labelExpenses: UILabel = {
+    private var labelExpenses: UILabel = {
         let label = UILabel()
         label.text = Constants.ButtonTitle.expensesDetail
         label.font = UIFont.systemFont(ofSize: 22, weight: .heavy)
@@ -82,7 +82,8 @@ class ExpensesDetailView: UIView {
     private func setConstraints() {
         ButtonPaymentSchedule.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.width.equalTo(344)
+            make.leading.equalTo(20)
+            make.trailing.equalTo(-20)
             make.height.equalTo(48)
             make.top.equalToSuperview().offset(100)
         }

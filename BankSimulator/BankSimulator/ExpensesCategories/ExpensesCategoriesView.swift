@@ -49,7 +49,8 @@ class ExpensesCategoriesView: UIView {
     private func setConstraints() {
         buttonAddExpense.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.width.equalTo(344)
+            make.leading.equalTo(20)
+            make.trailing.equalTo(-20)
             make.height.equalTo(48)
             make.bottom.equalToSuperview().offset(-120)
         }

@@ -27,17 +27,12 @@ class ExpensesDetailController: UIViewController, ExpensesDetailViewDelegate {
         view = expensesDetailView
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-       
-        viewModel.result = {
-            self.expensesDetailView.reloadTableView()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        viewModel.result = { [weak self] in
+            self?.expensesDetailView.reloadTableView()
+        }
         expensesDetailView.delegate = self
         viewModel.getDataFromCoreData(id: itemID)
     }

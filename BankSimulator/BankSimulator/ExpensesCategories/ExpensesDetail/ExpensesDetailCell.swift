@@ -32,7 +32,6 @@ class ExpensesDetailCell: UITableViewCell {
         stack.alignment = .leading
         stack.axis = .horizontal
         stack.distribution = .fillEqually
-        stack.translatesAutoresizingMaskIntoConstraints = false
         stack.addArrangedSubview(labelCategory)
         stack.addArrangedSubview(labelDate)
         stack.addArrangedSubview(labelExpense)
@@ -54,11 +53,12 @@ class ExpensesDetailCell: UITableViewCell {
     }
      
      private func setConstraints() {
-         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16),
-            stackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            stackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 16)
-         ])
+         stackView.snp.makeConstraints { make in
+             make.centerX.equalToSuperview()
+             make.leading.equalTo(16)
+             make.trailing.equalTo(-16)
+             make.top.equalTo(16)
+         }
      }
     
     func configure(_ viewModel: ExpensesDetail) {

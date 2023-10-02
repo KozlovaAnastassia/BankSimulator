@@ -13,17 +13,17 @@ protocol BottomSheetViewDelegate: AnyObject {
 }
 
 class BottomSheetView: UIView {
-    private var state: StateOfConstrains?
+    private var state: StateOfConstrains
     weak var delegate: BottomSheetViewDelegate?
     
-    lazy var textFieldCategory: UITextField = {
+    var textFieldCategory: UITextField = {
         let textField = UITextField()
         textField.clearButtonMode = .always
         textField.clearButtonMode = .whileEditing
         return textField
     }()
 
-    lazy var textFieldMoney: UITextField = {
+    var textFieldMoney: UITextField = {
         let textField = UITextField()
         textField.keyboardType = .numberPad
         textField.clearButtonMode = .always
@@ -75,47 +75,50 @@ class BottomSheetView: UIView {
         case .expensesDetail:
             textFieldCategory.snp.makeConstraints { make in
                 make.centerX.equalToSuperview()
-                make.width.equalTo(360)
-                make.height.equalTo(64)
-                make.top.equalToSuperview().offset(14)
+                make.leading.equalTo(20)
+                make.trailing.equalTo(-20)
+                make.top.equalToSuperview().offset(30)
             }
             textFieldMoney.snp.makeConstraints { make in
                 make.centerX.equalToSuperview()
-                make.width.equalTo(360)
-                make.height.equalTo(64)
-                make.top.equalTo(78)
+                make.leading.equalTo(20)
+                make.trailing.equalTo(-20)
+                make.top.equalTo(textFieldCategory.snp_topMargin).offset(50)
             }
             buttonAdd.snp.makeConstraints { make in
                 make.centerX.equalToSuperview()
-                make.width.equalTo(344)
+                make.leading.equalTo(30)
+                make.trailing.equalTo(-30)
                 make.height.equalTo(48)
-                make.top.equalTo(145)
+                make.top.equalTo(textFieldMoney.snp_topMargin).offset(40)
             }
         case .expenses:
             textFieldCategory.snp.makeConstraints { make in
                 make.centerX.equalToSuperview()
-                make.width.equalTo(360)
-                make.height.equalTo(64)
-                make.top.equalToSuperview().offset(14)
+                make.leading.equalTo(20)
+                make.trailing.equalTo(-20)
+                make.top.equalToSuperview().offset(30)
             }
             buttonAdd.snp.makeConstraints { make in
                 make.centerX.equalToSuperview()
-                make.width.equalTo(344)
+                make.leading.equalTo(30)
+                make.trailing.equalTo(-30)
                 make.height.equalTo(48)
-                make.top.equalTo(78)
+                make.top.equalTo(textFieldCategory.snp_topMargin).offset(40)
             }
         case .income:
             textFieldMoney.snp.makeConstraints { make in
                 make.centerX.equalToSuperview()
-                make.width.equalTo(360)
-                make.height.equalTo(64)
-                make.top.equalToSuperview().offset(14)
+                make.leading.equalTo(20)
+                make.trailing.equalTo(-20)
+                make.top.equalToSuperview().offset(30)
             }
             buttonAdd.snp.makeConstraints { make in
                 make.centerX.equalToSuperview()
-                make.width.equalTo(344)
+                make.leading.equalTo(30)
+                make.trailing.equalTo(-30)
                 make.height.equalTo(48)
-                make.top.equalTo(78)
+                make.top.equalTo(textFieldMoney.snp_topMargin).offset(40)
             }
         default: break
         }

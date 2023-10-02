@@ -24,18 +24,15 @@ class IncomeController: UIViewController, IncomeViewDelegate {
         view = incomeView
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-       
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
         viewModel.result = { [weak self] in
             self?.incomeView.reloadTableView()
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
         viewModel.getDataFromCoreData()
         incomeView.delegate = self
+        
     }
     
      func getIncomeForCell(indexPath: IndexPath) -> String {
